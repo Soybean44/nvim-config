@@ -76,17 +76,17 @@ require("lazy").setup({
     'hrsh7th/cmp-cmdline',
     dependencies = 'nvim-cmp'
   },
-  {
-    "L3MON4D3/LuaSnip",
-    lazy = false,
-    config = function()
-      require("config.luasnip")
-    end
-  },
-  {
-    'saadparwaiz1/cmp_luasnip',
-    dependencies = "L3MON4D3/LuaSnip"
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   lazy = false,
+  --   config = function()
+  --     require("config.luasnip")
+  --   end
+  -- },
+  -- {
+  --   'saadparwaiz1/cmp_luasnip',
+  --   dependencies = "L3MON4D3/LuaSnip"
+  -- },
   {
     'williamboman/mason.nvim',
     init = function()
@@ -107,7 +107,7 @@ require("lazy").setup({
     config = function()
       local lsp_zero = require('lsp-zero')
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
+        ensure_installed = { "lua-ls", "rust-analyzer", "python-lsp-server" },
         automatic_installation = true,
         handlers = {
           lsp_zero.default_setup,
@@ -163,17 +163,17 @@ require("lazy").setup({
     'hrsh7th/cmp-cmdline',
     dependencies = 'nvim-cmp'
   },
-  {
-    "L3MON4D3/LuaSnip",
-    lazy = false,
-    config = function()
-      require("config.luasnip")
-    end
-  },
-  {
-    'saadparwaiz1/cmp_luasnip',
-    dependencies = "L3MON4D3/LuaSnip",
-  },
+  --{
+  --  "L3MON4D3/LuaSnip",
+  --  lazy = false,
+  --  config = function()
+  --    require("config.luasnip")
+  --  end
+  --},
+  --{
+  -- 'saadparwaiz1/cmp_luasnip',
+  --  dependencies = "L3MON4D3/LuaSnip",
+  --},
   {
     'williamboman/mason.nvim',
     init = function()
