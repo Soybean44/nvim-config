@@ -12,7 +12,7 @@ require("lazy").setup({
       vim.cmd.colorscheme "catppuccin"
     end
   },
-  'nvim-tree/nvim-web-devicons',
+  "nvim-tree/nvim-web-devicons",
   {
     'nvim-lualine/lualine.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -44,7 +44,7 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     end
   },
-  'neovim/nvim-lspconfig',
+  "neovim/nvim-lspconfig",
   { 
     'hrsh7th/nvim-cmp', 
     config = function()
@@ -71,14 +71,45 @@ require("lazy").setup({
     'hrsh7th/cmp-cmdline', 
     dependencies = 'nvim-cmp' 
   },
-  --{
-  --  "L3MON4D3/LuaSnip",
-  --  lazy = false,
-  --  config = function()
-  --    require("config.luasnip")
-  --  end
-  --},
-  --'saadparwaiz1/cmp_luasnip',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim'
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = false,
+    config = function()
+      require("config.luasnip")
+    end
+  },
+  {
+    'saadparwaiz1/cmp_luasnip',
+    dependencies = "L3MON4D3/LuaSnip"
+  },
+  {
+    'williamboman/mason.nvim',
+    init = function()
+      require("mason").setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      })
+    end
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = 'williamboman/mason.nvim',
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "rust_analyzer" }
+      })
+    end
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+    config = function()
+      require("config.fugitive")
+    end
+  },
 })
