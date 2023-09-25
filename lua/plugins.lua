@@ -111,9 +111,6 @@ require("lazy").setup({
   {
     "tpope/vim-fugitive",
     lazy = false,
-    config = function()
-      require("config.fugitive")
-    end
   },
   "nvim-lua/plenary.nvim",
   {
