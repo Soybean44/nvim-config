@@ -229,12 +229,15 @@ require("lazy").setup({
       }
     end,
   },
-  'liuchengxu/vim-which-key',
   {
-    'AckslD/nvim-whichkey-setup.lua',
-    requires = { 'liuchengxu/vim-which-key' },
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
     config = function()
       require('config.whichkey')
-    end
+    end,
   },
 })
