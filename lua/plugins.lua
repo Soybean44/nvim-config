@@ -237,4 +237,8 @@ require("lazy").setup({
       require('config.whichkey')
     end,
   },
+  {
+    'akinsho/toggleterm.nvim',
+    config = true,
+  }
 })

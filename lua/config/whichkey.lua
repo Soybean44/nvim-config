@@ -30,6 +30,12 @@ local keymap = {
         s = { '<Cmd>Telescope git_status<CR>', 'status' },
       },
     },
+    t = {
+      name = '+term',
+      v = { ':ToggleTerm direction=vertical<CR>', 'vertical terminal' },
+      h = { ':ToggleTerm direction=horizontal<CR>', 'horizontal terminal' },
+      f = { ':ToggleTerm direction=float<CR>', 'floating terminal' },
+    },
     n = {
       name = '+neorg',
       n = { '<Cmd> Neorg keybind norg core.dirman.new.note<CR>', 'new note' },
