@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+  noremap = true,   -- non-recursive
+  silent = true,    -- do not show message
 }
 
 -----------------
@@ -9,6 +9,7 @@ local opts = {
 -----------------
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
@@ -32,4 +33,3 @@ vim.keymap.set('n', '<M-h>', ':vertical resize +2<CR>', opts)
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
-

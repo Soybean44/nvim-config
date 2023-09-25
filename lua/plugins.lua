@@ -76,17 +76,17 @@ require("lazy").setup({
     'hrsh7th/cmp-cmdline',
     dependencies = 'nvim-cmp'
   },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   lazy = false,
-  --   config = function()
-  --     require("config.luasnip")
-  --   end
-  -- },
-  -- {
-  --   'saadparwaiz1/cmp_luasnip',
-  --   dependencies = "L3MON4D3/LuaSnip"
-  -- },
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = false,
+    config = function()
+      require("config.luasnip")
+    end
+  },
+  {
+    'saadparwaiz1/cmp_luasnip',
+    dependencies = "L3MON4D3/LuaSnip"
+  },
   {
     'williamboman/mason.nvim',
     init = function()
@@ -215,5 +215,25 @@ require("lazy").setup({
     config = function()
       require("config.lsp")
     end
+  },
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = {      -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Documents/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
   },
 })
