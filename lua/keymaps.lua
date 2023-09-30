@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-  noremap = true,   -- non-recursive
-  silent = true,    -- do not show message
+  noremap = true, -- non-recursive
+  silent = true,  -- do not show message
 }
 
 -----------------
@@ -33,3 +33,8 @@ vim.keymap.set('n', '<M-h>', ':vertical resize +2<CR>', opts)
 -- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
+
+-----------------
+-- Terminal mode --
+-----------------
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
