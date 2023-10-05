@@ -20,4 +20,24 @@ ls.add_snippets(nil, {
       func(date, {}),
     }),
   },
+  python = {
+    snip({
+        trig = "info",
+        namr = "Info Metadata",
+        dscr = "Info metadata for python files"
+      },
+      {
+        text({ "\"\"\"",
+          "Title: " }), insert(1, "note_title"), text({ "",
+        "Author: Soverign Shahid" }), text({ "",
+        "Date: " }), func(date, {}), text({ "", "\"\"\"" })
+      }),
+    snip({
+      trig = "main",
+      namr = "Main Code Block",
+      dscr = "creates if name == main block"
+    }, {
+      text({ "if __name__ == \"__main__\":", "\t" })
+    })
+  }
 })
