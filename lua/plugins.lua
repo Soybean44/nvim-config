@@ -38,9 +38,15 @@ require("lazy").setup({
     lazy = false,
     dependencies = 'nvim-lua/plenary.nvim',
   },
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    config = function ()
+      require("config.lsp")
+    end
+  },
   {
     'hrsh7th/nvim-cmp',
+    version = "1.x",
     config = function()
       require('config.nvim-cmp')
     end
@@ -81,30 +87,17 @@ require("lazy").setup({
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'VonHeikemen/lsp-zero.nvim' },
+    dependencies = { 'williamboman/mason.nvim' },
     config = function()
-      local lsp_zero = require('lsp-zero')
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab" },
         automatic_installation = true,
-        handlers = {
-          lsp_zero.default_setup,
-        },
       })
     end
   },
   {
     "tpope/vim-fugitive",
     lazy = false,
-  },
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    lazy = false,
-    config = function()
-      require("config.lsp")
-    end
   },
   {
     "nvim-neorg/neorg",
@@ -140,5 +133,11 @@ require("lazy").setup({
   {
     'akinsho/toggleterm.nvim',
     config = true,
+  },
+  {
+    'lervag/vimtex',
+    config = function()
+      require("config.tex")
+    end
   }
 })
