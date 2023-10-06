@@ -72,6 +72,16 @@ require("lazy").setup({
 		dependencies = "nvim-cmp",
 	},
 	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("config.luasnip")
+		end,
+	},
+	{
+		"hrsh7th/cmp-luasnip",
+		dependencies = "nvim-cmp",
+	},
+	{
 		"williamboman/mason.nvim",
 		init = function()
 			require("mason").setup({
