@@ -12,6 +12,7 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.pylsp.setup {}
 lspconfig.texlab.setup {}
+lspconfig.zls.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {

@@ -131,7 +131,7 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab", "zls" },
         automatic_installation = true,
       })
     end,
