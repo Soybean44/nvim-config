@@ -18,6 +18,10 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
+-- Remap j and k to gj and gk
+vim.keymap.set('n', 'j', 'gj', opts)
+vim.keymap.set('n', 'k', 'gk', opts)
+
 -- Resize with arrows
 -- delta: 2 lines
 vim.keymap.set('n', '<M-k>', ':resize -2<CR>', opts)

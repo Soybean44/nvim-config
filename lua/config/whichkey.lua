@@ -1,9 +1,9 @@
 local wk = require("which-key")
 
 local keymap = {
+  ["<C-w>"] = { ':w!<CR>', 'save file' }, -- set a single command and text
+  ["<C-q>"] = { ':q!<CR>', 'save file' }, -- set a single command and text
   ["<leader>"] = {
-    w = { ':w!<CR>', 'save file' }, -- set a single command and text
-    q = { ':q!<CR>', 'quit file' }, -- set a single command and text
     b = { ':bd<CR>', 'delete buffer' },
     g = {
       name = '+git',

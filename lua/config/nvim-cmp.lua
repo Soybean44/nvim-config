@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 require('config.luasnip')
-
+local ls = require('luasnip')
 
 local has_words_before = function()
   unpack = unpack or table.unpack
