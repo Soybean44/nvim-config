@@ -1,12 +1,12 @@
-# Neovim Config - Sovereign Shahid
-This config was made so I can standardize my configs over my many devices.
+# Neovim Config
 
-Currently it is set up to work with the following languages:
-- Rust
-- C / C++
-- Python
+This is my neovim config that im making from scratch using lazy.nvim as my package manager
 
-## Other Notes
-Some file locations have been manually coded in, (e.g. debugpy path). 
-You need to change this for your local system depending on where the files are located
+## Todo list
+In order from most priority to least priority
+1. Python Support
+2. Rust Support
+3. C/C++ Support
 
+## Features Implemented
+Finished items in the todo list will be added to this list
