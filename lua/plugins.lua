@@ -27,7 +27,7 @@ require("lazy").setup({
     config = function()
       require("nvim-treesitter.configs").setup({
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "python", "lua", "vim", "vimdoc", "rust", "c", "cpp", "markdown", "latex" },
+        ensure_installed = { "python", "lua", "vim", "vimdoc", "rust", "c", "cpp", "markdown", "latex", "go", "svelte" },
       })
     end,
   },
@@ -131,7 +131,7 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab", "zls", "svelte" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab", "zls", "svelte", "gopls" },
         automatic_installation = true,
       })
     end,
@@ -222,4 +222,9 @@ require("lazy").setup({
     end,
   },
   'kmonad/kmonad-vim',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
 })
