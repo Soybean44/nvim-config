@@ -1,15 +1,15 @@
-require("lazy").setup({
+require("lazy").setup {
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     lazy = false,
     init = function()
-      require("catppuccin").setup({
+      require("catppuccin").setup {
         flavour = "mocha",
         transparent_background = true,
-      })
-      vim.cmd.colorscheme("catppuccin")
+      }
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
   "nvim-tree/nvim-web-devicons",
@@ -18,17 +18,17 @@ require("lazy").setup({
     dependencies = "nvim-tree/nvim-web-devicons",
     lazy = false,
     config = function()
-      require("config.lualine")
+      require "config.lualine"
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.configs").setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = { "python", "lua", "vim", "vimdoc", "rust", "c", "cpp", "markdown", "latex" },
-      })
+      }
     end,
   },
   "nvim-lua/plenary.nvim",
@@ -41,7 +41,7 @@ require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("config.lsp")
+      require "config.lsp"
     end,
   },
   {
@@ -78,7 +78,7 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     init = function()
-      require("mason").setup({
+      require("mason").setup {
         ui = {
           icons = {
             package_installed = "✓",
@@ -86,16 +86,16 @@ require("lazy").setup({
             package_uninstalled = "✗",
           },
         },
-      })
+      }
     end,
   },
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local conform = require("conform")
+      local conform = require "conform"
 
-      conform.setup({
+      conform.setup {
         formatters_by_ft = {
           javascript = { "prettier" },
           typescript = { "prettier" },
@@ -116,13 +116,13 @@ require("lazy").setup({
           async = false,
           timeout_ms = 500,
         },
-      })
+      }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-        conform.format({
+        conform.format {
           lsp_fallback = true,
           async = false,
           timeout_ms = 500,
-        })
+        }
       end, { desc = "Format file or range (in visual mode)" })
     end,
   },
@@ -130,10 +130,10 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     config = function()
-      require("mason-lspconfig").setup({
+      require("mason-lspconfig").setup {
         ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab", "zls", "svelte" },
         automatic_installation = true,
-      })
+      }
     end,
   },
   {
@@ -145,11 +145,11 @@ require("lazy").setup({
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("neorg").setup({
+      require("neorg").setup {
         load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.defaults"] = {}, -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
+          ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/Documents/notes",
@@ -157,7 +157,7 @@ require("lazy").setup({
             },
           },
         },
-      })
+      }
     end,
   },
   {
@@ -168,7 +168,7 @@ require("lazy").setup({
       vim.o.timeoutlen = 300
     end,
     config = function()
-      require("config.whichkey")
+      require "config.whichkey"
     end,
   },
   {
@@ -178,7 +178,7 @@ require("lazy").setup({
   {
     "lervag/vimtex",
     config = function()
-      require("config.tex")
+      require "config.tex"
     end,
   },
   "othree/html5.vim",
@@ -200,7 +200,7 @@ require("lazy").setup({
       require("nvim-tree").setup()
 
       -- OR setup with some options
-      require("nvim-tree").setup({
+      require("nvim-tree").setup {
         sort_by = "case_sensitive",
         view = {
           width = 30,
@@ -211,7 +211,7 @@ require("lazy").setup({
         filters = {
           dotfiles = true,
         },
-      })
+      }
     end,
   },
   "mattn/emmet-vim",
@@ -221,5 +221,30 @@ require("lazy").setup({
       vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.svelte"
     end,
   },
-  'kmonad/kmonad-vim',
-})
+  "kmonad/kmonad-vim",
+  "mfussenegger/nvim-dap",
+  {
+    "mfussenegger/nvim-dap-python",
+    dependencies = "mfussenegger/nvim-dap",
+    ft = "python",
+    config = function()
+      require("dap-python").setup "~/home/soybean44/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap, dapui = require "dap", require "dapui"
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
+  },
+}
