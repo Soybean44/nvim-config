@@ -228,23 +228,30 @@ require("lazy").setup {
     dependencies = "mfussenegger/nvim-dap",
     ft = "python",
     config = function()
-      require("dap-python").setup "~/home/soybean44/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup "/home/soybean44/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
     end,
   },
+  --{
+  --  "rcarriga/nvim-dap-ui",
+  --  dependencies = "mfussenegger/nvim-dap",
+  --  config = function()
+  --    local dap, dapui = require "dap", require "dapui"
+  --    dap.listeners.after.event_initialized["dapui_config"] = function()
+  --      dapui.open()
+  --    end
+  --    dap.listeners.before.event_terminated["dapui_config"] = function()
+  --      dapui.close()
+  --    end
+  --    dap.listeners.before.event_exited["dapui_config"] = function()
+  --      dapui.close()
+  --    end
+  --  end,
+  --},
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    "tpope/vim-markdown",
+    ft = "markdown",
     config = function()
-      local dap, dapui = require "dap", require "dapui"
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+      vim.g.markdown_fenced_languages = { "html", "python", "bash=sh" }
     end,
   },
 }
