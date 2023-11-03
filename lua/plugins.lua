@@ -147,9 +147,9 @@ require("lazy").setup {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.defaults"] = {},  -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
+          ["core.dirman"] = {      -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/Documents/notes",
@@ -253,5 +253,11 @@ require("lazy").setup {
     config = function()
       vim.g.markdown_fenced_languages = { "html", "python", "bash=sh" }
     end,
+  },
+  {
+    "David-Kunz/gen.nvim",
+    config = function()
+      require('gen').model = 'mistral:instruct' -- default 'mistral:instruct'
+    end
   },
 }

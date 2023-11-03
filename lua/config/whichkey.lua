@@ -6,6 +6,7 @@ local keymap = {
   ["<C-n>"] = { ":NvimTreeOpen<CR>", "Open Nvim Tree" },
   ["<leader>"] = {
     b = { ":bd<CR>", "delete buffer" },
+    l = { ":Gen<CR>", "generate code" },
     g = {
       name = "+git",
       s = { "<Cmd>Git<CR>", "git status" },
