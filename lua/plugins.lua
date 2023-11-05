@@ -260,4 +260,10 @@ require("lazy").setup {
       require('gen').model = 'mistral:instruct' -- default 'mistral:instruct'
     end
   },
+  {
+    'vigoux/LanguageTool.nvim',
+    config = function()
+      vim.g.languagtool_server = '/usr/bin/languagetool'
+    end
+  },
 }
