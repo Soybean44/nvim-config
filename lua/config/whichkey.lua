@@ -6,14 +6,18 @@ local keymap = {
   ["<C-n>"] = { ":NvimTreeOpen<CR>", "Open Nvim Tree" },
   ["<leader>"] = {
     b = { ":bd<CR>", "delete buffer" },
-    l = { ":Gen<CR>", "generate code" },
+    l = {
+      name = "+lang",
+      g = { ":Gen<CR>", "generate code" },
+      t = { ":LanguageToolSetUp<CR>", "generate code" },
+    },
     g = {
       name = "+git",
       s = { "<Cmd>Git<CR>", "git status" },
       p = { "<Cmd>Git push<CR>", "git push" },
     },
     d = {
-      name = "Dap",
+      name = "+Dap",
       b = { "<Cmd>DapToggleBreakpoint<CR>", "toggle breakpoint" },
       r = { "<Cmd>DapContinue<CR>", "run debugger" },
     },
