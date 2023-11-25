@@ -1,4 +1,4 @@
-local ls = require("luasnip")
+local ls = require "luasnip"
 -- some shorthands...
 local snip = ls.snippet
 local node = ls.snippet_node
@@ -8,7 +8,9 @@ local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
-local date = function() return { os.date('%Y-%m-%d') } end
+local date = function()
+  return { os.date "%Y-%m-%d" }
+end
 
 ls.add_snippets(nil, {
   all = {
@@ -22,22 +24,39 @@ ls.add_snippets(nil, {
   },
   python = {
     snip({
-        trig = "info",
-        namr = "Info Metadata",
-        dscr = "Info metadata for python files"
-      },
-      {
-        text({ "\"\"\"",
-          "Title: " }), insert(1, "note_title"), text({ "",
-        "Author: Soverign Shahid" }), text({ "",
-        "Date: " }), func(date, {}), text({ "", "\"\"\"" })
-      }),
+      trig = "info",
+      namr = "Info Metadata",
+      dscr = "Info metadata for python files",
+    }, {
+      text { '"""', "Title: " },
+      insert(1, "note_title"),
+      text { "", "Author: Sovereign Shahid" },
+      text { "", "Date: " },
+      func(date, {}),
+      text { "", '"""' },
+    }),
     snip({
       trig = "main",
       namr = "Main Code Block",
-      dscr = "creates if name == main block"
+      dscr = "creates if name == main block",
     }, {
-      text({ "if __name__ == \"__main__\":", "\t" })
-    })
-  }
+      text { 'if __name__ == "__main__":', "\t" },
+    }),
+    snip({
+      trig = "ret",
+      namr = "Return in docstring",
+    }, {
+      text { "", ":return: " },
+      insert(1, "return_desc"),
+    }),
+    snip({
+      trig = "param",
+      namr = "Parameter in docstring",
+    }, {
+      text { "", ":param " },
+      insert(1, "arg"),
+      text { ": " },
+      insert(2, "desc"),
+    }),
+  },
 })

@@ -147,9 +147,9 @@ require("lazy").setup {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.defaults"] = {}, -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
+          ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/Documents/notes",
@@ -257,8 +257,8 @@ require("lazy").setup {
   {
     "David-Kunz/gen.nvim",
     config = function()
-      require('gen').model = 'mistral:instruct' -- default 'mistral:instruct'
-    end
+      require("gen").model = "mistral:instruct" -- default 'mistral:instruct'
+    end,
   },
   {
     "andweeb/presence.nvim",

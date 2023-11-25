@@ -9,7 +9,6 @@ local keymap = {
     l = {
       name = "+lang",
       g = { ":Gen<CR>", "generate code" },
-      t = { ":LanguageToolSetUp<CR>", "generate code" },
     },
     g = {
       name = "+git",
