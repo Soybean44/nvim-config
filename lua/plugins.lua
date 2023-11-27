@@ -110,12 +110,9 @@ require("lazy").setup {
           graphql = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
+          cpp = { "astyle" },
         },
-        format_on_save = {
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 500,
-        },
+
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
@@ -124,6 +121,12 @@ require("lazy").setup {
           timeout_ms = 500,
         }
       end, { desc = "Format file or range (in visual mode)" })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+          require("conform").format({ bufnr = args.buf })
+        end,
+      })
     end,
   },
   {
@@ -147,9 +150,9 @@ require("lazy").setup {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.defaults"] = {},  -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
+          ["core.dirman"] = {      -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/Documents/notes",
