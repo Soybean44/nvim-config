@@ -1,6 +1,6 @@
 -- Setup language servers.
-local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup({
+local lspconfig = require "lspconfig"
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -9,20 +9,31 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
-lspconfig.pylsp.setup({})
-lspconfig.texlab.setup({})
-lspconfig.zls.setup({})
-lspconfig.svelte.setup({})
-lspconfig.gopls.setup({})
-lspconfig.ltex.setup({})
-lspconfig.clangd.setup({})
-lspconfig.rust_analyzer.setup({
+}
+lspconfig.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E501" },
+          maxLineLength = 100,
+        },
+      },
+    },
+  },
+}
+lspconfig.texlab.setup {}
+lspconfig.zls.setup {}
+lspconfig.svelte.setup {}
+lspconfig.gopls.setup {}
+lspconfig.ltex.setup {}
+lspconfig.clangd.setup {}
+lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ["rust-analyzer"] = {},
   },
-})
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -59,4 +70,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-require("config.nvim-cmp")
+require "config.nvim-cmp"
