@@ -288,4 +288,8 @@ require("lazy").setup {
       line_number_text    = "Line %s out of %s",  -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
     }
   },
+  {
+    'eriks47/generate.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' }
+  },
 }
