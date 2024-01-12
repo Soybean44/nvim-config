@@ -11,10 +11,10 @@ require("lazy").setup {
         highlight_overrides = {
           mocha = function(mocha)
             return {
-              Todo = {fg = mocha.yellow, bg = mocha.base},
+              Todo = { fg = mocha.yellow, bg = mocha.base },
             }
-          end
-        }
+          end,
+        },
       }
       vim.cmd.colorscheme "catppuccin"
     end,
@@ -32,13 +32,13 @@ require("lazy").setup {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     config = function()
-      vim.filetype.add({extension = {wgsl = "wgsl"}})
-      local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+      vim.filetype.add { extension = { wgsl = "wgsl" } }
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       parser_config.wgsl = {
-          install_info = {
-              url = "https://github.com/szebniok/tree-sitter-wgsl",
-              files = {"src/parser.c"}
-          },
+        install_info = {
+          url = "https://github.com/szebniok/tree-sitter-wgsl",
+          files = { "src/parser.c" },
+        },
       }
       require("nvim-treesitter.configs").setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -127,7 +127,6 @@ require("lazy").setup {
           python = { "isort", "black" },
           cpp = { "astyle" },
         },
-
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
@@ -139,7 +138,7 @@ require("lazy").setup {
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",
         callback = function(args)
-          require("conform").format({ bufnr = args.buf })
+          require("conform").format { bufnr = args.buf }
         end,
       })
     end,
@@ -165,9 +164,9 @@ require("lazy").setup {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.defaults"] = {}, -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
+          ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/Documents/notes",
@@ -236,6 +235,7 @@ require("lazy").setup {
   {
     "alvan/vim-closetag",
     config = function()
+      -- <C-y> , to use emmet
       vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.svelte"
     end,
   },
@@ -282,51 +282,67 @@ require("lazy").setup {
     "andweeb/presence.nvim",
     opts = {
       -- General options
-      auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-      neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-      main_image          = "file",                     -- Main image display (either "neovim" or "file")
-      log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-      debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-      enable_line_number  = false,                      -- Displays the current line number instead of the current project
-      blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-      buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-      file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-      show_time           = true,                       -- Show the timer
+      auto_update = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+      neovim_image_text = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+      main_image = "file", -- Main image display (either "neovim" or "file")
+      log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+      debounce_timeout = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+      enable_line_number = false, -- Displays the current line number instead of the current project
+      blacklist = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+      buttons = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+      file_assets = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+      show_time = true, -- Show the timer
 
       -- Rich Presence text options
-      editing_text        = "Editing %s",         -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-      file_explorer_text  = "Browsing %s",        -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-      git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-      plugin_manager_text = "Managing plugins",   -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-      reading_text        = "Reading %s",         -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-      workspace_text      = "Working on %s",      -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-      line_number_text    = "Line %s out of %s",  -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-    }
+      editing_text = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+      file_explorer_text = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+      git_commit_text = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+      plugin_manager_text = "Managing plugins", -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+      reading_text = "Reading %s", -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+      workspace_text = "Working on %s", -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+      line_number_text = "Line %s out of %s", -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+    },
   },
   {
-    'eriks47/generate.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' }
+    "eriks47/generate.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
-      local harpoon = require("harpoon")
+    config = function()
+      local harpoon = require "harpoon"
 
       harpoon:setup()
 
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      vim.keymap.set("n", "<leader>a", function()
+        harpoon:list():append()
+      end)
+      vim.keymap.set("n", "<C-e>", function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end)
 
-      vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<C-d>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+      vim.keymap.set("n", "<C-h>", function()
+        harpoon:list():select(1)
+      end)
+      vim.keymap.set("n", "<C-t>", function()
+        harpoon:list():select(2)
+      end)
+      vim.keymap.set("n", "<C-d>", function()
+        harpoon:list():select(3)
+      end)
+      vim.keymap.set("n", "<C-s>", function()
+        harpoon:list():select(4)
+      end)
 
       -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set("n", "<C-b>", function() harpoon:list():prev() end)
-      vim.keymap.set("n", "<C-f>", function() harpoon:list():next() end)
-    end
+      vim.keymap.set("n", "<C-b>", function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set("n", "<C-f>", function()
+        harpoon:list():next()
+      end)
+    end,
   },
 }
