@@ -14,6 +14,8 @@ local keymap = {
       name = "+git",
       s = { "<Cmd>Git<CR>", "git status" },
       p = { "<Cmd>Git push<CR>", "git push" },
+      b = { "<Cmd>Telescope git_branches<CR>", "git branches"},
+      w = { "<Cmd>Gwrite<CR>", "git write/stage"},
     },
     d = {
       name = "+Dap",
