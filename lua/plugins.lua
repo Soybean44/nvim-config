@@ -345,4 +345,5 @@ require("lazy").setup {
       end)
     end,
   },
+  'ThePrimeagen/vim-be-good',
 }

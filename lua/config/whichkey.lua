@@ -1,8 +1,6 @@
 local wk = require "which-key"
 
 local keymap = {
-  ["<C-w>"] = { ":w!<CR>", "save file" },
-  ["<C-q>"] = { ":q!<CR>", "save file" },
   ["<C-n>"] = { ":NvimTreeOpen<CR>", "Open Nvim Tree" },
   ["<leader>"] = {
     b = { ":bd<CR>", "delete buffer" },
@@ -14,6 +12,7 @@ local keymap = {
       name = "+git",
       s = { "<Cmd>Git<CR>", "git status" },
       p = { "<Cmd>Git push<CR>", "git push" },
+      c = { "<Cmd>Git commit<CR>", "git commit" },
       b = { "<Cmd>Telescope git_branches<CR>", "git branches"},
       w = { "<Cmd>Gwrite<CR>", "git write/stage"},
     },
