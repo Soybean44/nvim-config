@@ -125,9 +125,14 @@ require("lazy").setup {
           graphql = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
-          cpp = { "clang-format" },
-          c = { "clang-format" },
+          cpp = { "clang_format" },
+          c = { "clang_format" },
         },
+        formatters = {
+          clang_format = {
+            prepend_args = { "--style=Google" }
+          }
+        }
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
