@@ -130,7 +130,7 @@ require("lazy").setup {
         },
         formatters = {
           clang_format = {
-            prepend_args = { '--style={BasedOnStyle: Google, BreakBeforeBraces: Stroustrup}' }
+            prepend_args = { '--style={BasedOnStyle: Google, BreakBeforeBraces: Stroustrup, ColumnLimit: 85}' }
           }
         }
       }
