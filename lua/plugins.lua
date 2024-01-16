@@ -125,7 +125,8 @@ require("lazy").setup {
           graphql = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
-          cpp = { "astyle" },
+          cpp = { "clang-format" },
+          c = { "clang-format" },
         },
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
