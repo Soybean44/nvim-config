@@ -127,6 +127,7 @@ require("lazy").setup {
           python = { "isort", "black" },
           cpp = { "clang_format" },
           c = { "clang_format" },
+          rust = { "rustfmt" },
         },
         formatters = {
           clang_format = {
