@@ -33,7 +33,6 @@ local keymap = {
         c = { "<Cmd>Telescope commands<CR>", "commands" },
         h = { "<Cmd>Telescope command_history<CR>", "history" },
       },
-      q = { "<Cmd>Telescope quickfix<CR>", "quickfix" },
       g = {
         name = "+git",
         g = { "<Cmd>Telescope git_commits<CR>", "commits" },
@@ -41,6 +40,7 @@ local keymap = {
         b = { "<Cmd>Telescope git_branches<CR>", "branches" },
         s = { "<Cmd>Telescope git_status<CR>", "status" },
       },
+      q = { "<Cmd>Telescope quickfix<CR>", "quickfix" },
     },
     t = {
       name = "+term",
@@ -55,6 +55,7 @@ local keymap = {
     },
     v = { ":vsplit<CR>", "vertical split" },
     h = { ":split<CR>", "horizontal split" },
+    x = { ":source %<CR>", "source file" },
   },
 }
 wk.register(keymap)
