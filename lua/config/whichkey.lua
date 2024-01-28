@@ -55,7 +55,7 @@ local keymap = {
     },
     v = { ":vsplit<CR>", "vertical split" },
     h = { ":split<CR>", "horizontal split" },
-    x = { ":source %<CR>", "source file" },
+    x = { ":w<CR>:source %<CR>", "write & source file" },
   },
 }
 wk.register(keymap)
