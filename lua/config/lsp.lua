@@ -1,12 +1,17 @@
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Setup language servers.
 local lspconfig = require "lspconfig"
 lspconfig.lua_ls.setup {
+  capabilities = capabilities,
   settings = {
     Lua = {
+      completion = {
+        callSnippet = "Replace"
+      },
       diagnostics = {
-        globals = { "vim", "minetest" },
         disable = { "unused-local" },
       },
+      hint = { enable = true },
     },
   },
 }
