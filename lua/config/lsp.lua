@@ -9,7 +9,10 @@ lspconfig.lua_ls.setup {
         callSnippet = "Replace"
       },
       diagnostics = {
-        disable = { "unused-local" },
+        disable = { "unused-local", "undefined-field" },
+      },
+      workspace = {
+        userThirdParty = { "~/git-repos/LLS-Addons/addons" },
       },
       hint = { enable = true },
     },
