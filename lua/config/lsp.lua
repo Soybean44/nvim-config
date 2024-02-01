@@ -33,7 +33,6 @@ lspconfig.pylsp.setup {
 lspconfig.texlab.setup {}
 lspconfig.zls.setup {}
 lspconfig.svelte.setup {}
-lspconfig.gopls.setup {}
 lspconfig.ltex.setup {}
 lspconfig.clangd.setup {}
 lspconfig.rust_analyzer.setup {
