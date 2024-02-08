@@ -25,6 +25,12 @@ vim.keymap.set('n', '<M-h>', ':vertical resize +2<CR>', opts)
 
 
 -----------------
+-- Insert mode --
+-----------------
+
+vim.keymap.set('i', 'jj', '<Esc>', opts)
+
+-----------------
 -- Visual mode --
 -----------------
 
