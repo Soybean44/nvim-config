@@ -156,11 +156,6 @@ require("lazy").setup {
           c = { "clang_format" },
           rust = { "rustfmt" },
         },
-        formatters = {
-          clang_format = {
-            prepend_args = { '--style={BasedOnStyle: Google, BreakBeforeBraces: Stroustrup, ColumnLimit: 85, PointerAlignment: Left}' }
-          }
-        }
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
