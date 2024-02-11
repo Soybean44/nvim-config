@@ -158,7 +158,7 @@ require("lazy").setup {
         },
         formatters = {
           clang_format = {
-            prepend_args = { '--style={UseTab: Always, ColumnLimit: 85}' }
+            prepend_args = { '--style={BasedOnStyle: Google, BreakBeforeBraces: Stroustrup, ColumnLimit: 85, PointerAlignment: Left}' }
           }
         }
       }
