@@ -152,14 +152,13 @@ require("lazy").setup {
           graphql = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
-          cpp = { "clang_format" },
-          c = { "clang_format" },
+          cpp = { "astyle" },
+          c = { "astyle" },
           rust = { "rustfmt" },
         },
         formatters = {
-          clang_format = {
-            --style=file:/home/soybean44/.clang-format
-            prepend_args = {""}
+          astyle = {
+            prepend_args = {"-A14", "-t"}
           }
         }
       }
