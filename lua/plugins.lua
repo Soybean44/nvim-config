@@ -156,6 +156,12 @@ require("lazy").setup {
           c = { "clang_format" },
           rust = { "rustfmt" },
         },
+        formatters = {
+          clang_format = {
+            --style=file:/home/soybean44/.clang-format
+            prepend_args = {""}
+          }
+        }
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
