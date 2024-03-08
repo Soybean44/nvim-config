@@ -22,10 +22,9 @@ lspconfig.pylsp.setup {
   settings = {
     pylsp = {
       plugins = {
-        pycodestyle = {
-          ignore = { "E501", "W503" },
-          maxLineLength = 100,
-        },
+        pyflakes = {enabled = false},
+        pylint = {enabled = false},
+        pycodestyle = {enabled = false},
       },
     },
   },
