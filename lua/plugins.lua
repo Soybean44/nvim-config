@@ -162,6 +162,9 @@ require("lazy").setup {
         formatters = {
           astyle = {
             prepend_args = {"-A14", "-t"}
+          },
+          rustfmt = {
+            prepend_args = {"--edition", "2021"}
           }
         }
       }
