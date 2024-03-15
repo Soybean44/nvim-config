@@ -35,6 +35,7 @@ lspconfig.svelte.setup {}
 lspconfig.ltex.setup {}
 lspconfig.clangd.setup {}
 lspconfig.gopls.setup {}
+lspconfig.templ.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
