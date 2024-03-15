@@ -162,6 +162,9 @@ require("lazy").setup {
         formatters = {
           astyle = {
             prepend_args = {"-A14", "-t"}
+          },
+          rustfmt = {
+            prepend_args = {"--edition", "2021"}
           }
         }
       }
@@ -185,7 +188,7 @@ require("lazy").setup {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = { "lua_ls", "rust_analyzer", "pylsp", "texlab", "zls", "svelte", "ltex" },
+        ensure_installed = { "lua_ls", "pylsp", "texlab", "zls", "svelte", "ltex" },
         automatic_installation = true,
       }
     end,
