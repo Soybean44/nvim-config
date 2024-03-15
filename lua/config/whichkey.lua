@@ -16,14 +16,6 @@ local keymap = {
       c = { "<Cmd>Neogit commit<CR>", "git commit" },
       b = { "<Cmd>Telescope git_branches<CR>", "git branches"},
       a = { "<Cmd>!git add .<CR>", "git add all"},
-      g = { function ()
-        local neogit = require('neogit')
-        neogit.open({ "commit", "-a" })
-        local handle = io.popen("git push")
-        local result = handle:read("*a")
-        handle:close()
-        print(result)
-      end, "git commit and push all unstaged files"}
     },
     d = {
       name = "+Dap",
