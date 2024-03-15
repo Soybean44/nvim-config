@@ -18,9 +18,8 @@ local keymap = {
       a = { "<Cmd>!git add .<CR>", "git add all"},
       g = { function ()
         local neogit = require('neogit')
-        vim.fn.system("git add .")
-        neogit.open({ "commit", "-a", "c" })
-        vim.fn.system("git push")
+        neogit.open({ "commit", "-a" })
+        os.execute("git push")
       end, "git commit and push all unstaged files"}
     },
     d = {
