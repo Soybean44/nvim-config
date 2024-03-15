@@ -1,5 +1,6 @@
 local wk = require "which-key"
 
+
 local keymap = {
   ["<C-n>"] = { ":NvimTreeOpen<CR>", "Open Nvim Tree" },
   ["<leader>"] = {
@@ -10,12 +11,17 @@ local keymap = {
     },
     g = {
       name = "+git",
-      s = { "<Cmd>Git<CR>", "git status" },
-      p = { "<Cmd>Git push<CR>", "git push" },
-      c = { "<Cmd>Git commit<CR>", "git commit" },
+      s = { "<Cmd>Neogit<CR>", "git status" },
+      p = { "<Cmd>!git push<CR>", "git push" },
+      c = { "<Cmd>Neogit commit<CR>", "git commit" },
       b = { "<Cmd>Telescope git_branches<CR>", "git branches"},
-      w = { "<Cmd>Gwrite<CR>", "git write/stage"},
-      a = { "<Cmd>!git add .<CR>", "git add all"}
+      a = { "<Cmd>!git add .<CR>", "git add all"},
+      g = { function ()
+        local neogit = require('neogit')
+        vim.fn.system("git add .")
+        neogit.open({ "commit" })
+        vim.fn.system("git push")
+      end, "git commit and push all unstaged files"}
     },
     d = {
       name = "+Dap",
