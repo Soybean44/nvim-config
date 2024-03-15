@@ -19,7 +19,10 @@ local keymap = {
       g = { function ()
         local neogit = require('neogit')
         neogit.open({ "commit", "-a" })
-        os.execute("git push")
+        local handle = io.popen("git push")
+        local result = handle:read("*a")
+        handle:close()
+        print(result)
       end, "git commit and push all unstaged files"}
     },
     d = {
