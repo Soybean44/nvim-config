@@ -19,7 +19,7 @@ local keymap = {
       g = { function ()
         local neogit = require('neogit')
         vim.fn.system("git add .")
-        neogit.open({ "commit" })
+        neogit.open({ "commit", "-a", "c" })
         vim.fn.system("git push")
       end, "git commit and push all unstaged files"}
     },
