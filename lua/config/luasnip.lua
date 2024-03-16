@@ -22,6 +22,22 @@ ls.add_snippets(nil, {
       func(date, {}),
     }),
   },
+  cpp = {
+    snip({
+      trig = "hello",
+      namr = "hello world",
+      dscr = "hello world program",
+    }, {
+      text { '#include <iostream>',
+        '',
+        'using namespace std;',
+        'int main (void) {',
+        '  cout << "Hello World!" << endl;',
+        '  return 0;',
+        '}'
+      },
+    })
+  },
   python = {
     snip({
       trig = "info",
