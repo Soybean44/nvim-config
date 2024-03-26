@@ -53,6 +53,17 @@ local keymap = {
       n = { "<Cmd> Neorg keybind norg core.dirman.new.note<CR>", "new note" },
       o = { "<Cmd> Neorg workspace notes<CR>", "open notes" },
     },
+    p = {
+      name = "+pyscratch",
+      r = { ":w !python<CR>", "run buffer"},
+      o = { function ()
+        vim.cmd[[
+        tabnew
+        set filetype=python
+        ]]
+      end, "run buffer"},
+      q = { ":q!<CR>", "quit buffer"},
+    },
     v = { ":vsplit<CR>", "vertical split" },
     h = { ":split<CR>", "horizontal split" },
     x = { ":w<CR>:source %<CR>", "write & source file" },
