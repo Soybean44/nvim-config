@@ -48,11 +48,6 @@ local keymap = {
       h = { ":ToggleTerm direction=horizontal<CR>", "horizontal terminal" },
       f = { ":ToggleTerm direction=float<CR>", "floating terminal" },
     },
-    n = {
-      name = "+neorg",
-      n = { "<Cmd> Neorg keybind norg core.dirman.new.note<CR>", "new note" },
-      o = { "<Cmd> Neorg workspace notes<CR>", "open notes" },
-    },
     p = {
       name = "+pyscratch",
       r = { ":w !python<CR>", "run buffer"},
