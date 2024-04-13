@@ -386,16 +386,16 @@ require("lazy").setup {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end)
 
-      vim.keymap.set("n", "<C-j>", function()
+      vim.keymap.set("n", "<M-j>", function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set("n", "<C-f>", function()
+      vim.keymap.set("n", "<M-f>", function()
         harpoon:list():select(2)
       end)
-      vim.keymap.set("n", "<C-d>", function()
+      vim.keymap.set("n", "<M-d>", function()
         harpoon:list():select(3)
       end)
-      vim.keymap.set("n", "<C-k>", function()
+      vim.keymap.set("n", "<M-k>", function()
         harpoon:list():select(4)
       end)
 
@@ -433,4 +433,5 @@ require("lazy").setup {
       })
     end,
   },
+  'alexghergh/nvim-tmux-navigation'
 }
