@@ -424,7 +424,7 @@ require("lazy").setup {
       end, {})
       vim.api.nvim_create_user_command("CompileModeCommand", function(opts)
         print(string.format("Adding command: %s", opts.args))
-        harpoon:list("cmd"):prepend(opts.args)
+        harpoon:list("cmd"):prepend({value = opts.args})
       end, { nargs='?' })
       vim.keymap.set("n", "<C-e>", function()
         harpoon.ui:toggle_quick_menu(harpoon:list("files"))
