@@ -58,6 +58,7 @@ require("lazy").setup {
   },
   {
     "folke/neodev.nvim",
+    dependencies = "neovim/nvim-lspconfig",
     opts = {
       library = {
         enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
@@ -357,32 +358,86 @@ require("lazy").setup {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "EvWilson/slimux.nvim" },
     config = function()
       local harpoon = require "harpoon"
 
-      harpoon:setup()
+      harpoon:setup({
+        settings = {
+          sync_on_ui_close = true
+        }
+      })
 
       vim.keymap.set("n", "<leader>a", function()
-        harpoon:list():add()
+        harpoon:list("files"):add()
       end)
+      vim.api.nvim_create_user_command("ClearCompileCommands", function()
+        harpoon:list("cmd"):clear()
+      end, {})
+      vim.api.nvim_create_user_command("CompileModeCommand", function(opts)
+        print(string.format("Adding command: %s", opts.args))
+        harpoon:list("cmd"):prepend("testing")
+      end, { nargs='?' })
       vim.keymap.set("n", "<C-e>", function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
+        harpoon.ui:toggle_quick_menu(harpoon:list("files"))
+      end)
+      vim.keymap.set("n", "<M-c>", function()
+        harpoon.ui:toggle_quick_menu(harpoon:list("cmd"))
       end)
 
       vim.keymap.set("n", "<M-j>", function()
-        harpoon:list():select(1)
+        harpoon:list("files"):select(1)
       end)
       vim.keymap.set("n", "<M-f>", function()
-        harpoon:list():select(2)
+        harpoon:list("files"):select(2)
       end)
       vim.keymap.set("n", "<M-d>", function()
-        harpoon:list():select(3)
+        harpoon:list("files"):select(3)
       end)
       vim.keymap.set("n", "<M-k>", function()
-        harpoon:list():select(4)
+        harpoon:list("files"):select(4)
       end)
-
+      vim.keymap.set("n", "<M-r>", function()
+          local function get_os_command_output(cmd, cwd)
+            if type(cmd) ~= "table" then
+              print("Harpoon: [get_os_command_output]: cmd has to be a table")
+              return {}
+            end
+            local Job = require("plenary.job")
+            local command = table.remove(cmd, 1)
+            local stderr = {}
+            local stdout, ret = Job
+            :new({
+              command = command,
+              args = cmd,
+              cwd = cwd,
+              on_stderr = function(_, data)
+                table.insert(stderr, data)
+              end,
+            })
+            :sync()
+            return stdout, ret, stderr
+          end
+          local _, ret, stderr = get_os_command_output({
+            "tmux",
+            "send-keys",
+            "-t1",
+            string.format('%s', harpoon:list("cmd"):get(1).value),
+            ";",
+            "send-keys",
+            "-t1",
+            "Enter",
+            ";",
+            "select-window",
+            "-t1",
+          }, vim.loop.cwd())
+          print(string.format('sending command: %s', harpoon:list("cmd"):get(1).value))
+          if ret ~= 0 then
+            if stderr then
+              error("Failed to send command. " .. stderr[1])
+            end
+          end
+        end)
     end,
   },
   'ThePrimeagen/vim-be-good',
