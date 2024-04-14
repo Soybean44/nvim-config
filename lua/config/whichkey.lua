@@ -42,12 +42,6 @@ local keymap = {
       },
       q = { "<Cmd>Telescope quickfix<CR>", "quickfix" },
     },
-    t = {
-      name = "+term",
-      v = { ":ToggleTerm direction=vertical<CR>", "vertical terminal" },
-      h = { ":ToggleTerm direction=horizontal<CR>", "horizontal terminal" },
-      f = { ":ToggleTerm direction=float<CR>", "floating terminal" },
-    },
     p = {
       name = "+pyscratch",
       r = { ":w !python<CR>", "run buffer"},
