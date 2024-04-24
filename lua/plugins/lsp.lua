@@ -74,7 +74,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = { "lua_ls", "pylsp", "texlab", "zls", "svelte", "ltex" },
+        ensure_installed = { "lua_ls", "pylsp", "texlab", "zls", "svelte", "ltex", "ols" },
         automatic_installation = true,
       }
     end,
@@ -148,4 +148,5 @@ return {
       require "config.tex"
     end,
   },
+  'tjdevries/templ.nvim',
 }
