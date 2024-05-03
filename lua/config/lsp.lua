@@ -37,6 +37,7 @@ lspconfig.clangd.setup {}
 lspconfig.gopls.setup {}
 lspconfig.templ.setup {}
 lspconfig.ols.setup {}
+lspconfig.tailwindcss.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
