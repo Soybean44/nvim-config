@@ -1,47 +1,76 @@
 return {
-  "nvim-neotest/nvim-nio",
   {
     "mfussenegger/nvim-dap",
     dependencies = {
       "nvim-neotest/nvim-nio",
-    }
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap-python",
     },
-    opts = {
-      handlers = {},
-      ensure_installed = {
-        "codelldb",
-      }
-    }
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    dependencies = "mfussenegger/nvim-dap",
-    ft = "python",
-    config = function()
-      require("dap-python").setup "/home/soybean44/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
+    config = function ()
       local dap = require("dap")
-      local dapui = require("dapui")
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
+      local ui = require("dapui")
+
+      require("dapui").setup()
+      require("dap-python").setup "/usr/bin/python"
+
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap" }
+      }
+
+      dap.configurations.c = {
+        {
+          name = "gdb",
+          type = "gdb",
+          request = "launch",
+          -- program = "/usr/bin/gdb",
+          program = function()
+            return vim.fn.input({
+              prompt = "Path to Debuggable Executable: ",
+              default = vim.fn.getcwd() .. '/',
+              completion = "file"
+            })
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
+          console = "integratedTerminal"
+        },
+      }
+
+      dap.configurations.cpp = {
+        {
+          name = "gdb",
+          type = "gdb",
+          request = "launch",
+          -- program = "/usr/bin/gdb",
+          program = function()
+            return vim.fn.input({
+              prompt = "Path to Debuggable Executable: ",
+              default = vim.fn.getcwd() .. '/',
+              completion = "file"
+            })
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
+          console = "integratedTerminal"
+        },
+      }
+
+      dap.listeners.before.attach.dapui_config = function()
+        ui.open()
       end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
+      dap.listeners.before.launch.dapui_config = function()
+        ui.open()
       end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
+      dap.listeners.before.event_terminated.dapui_config = function()
+        ui.close()
       end
-    end,
+      dap.listeners.before.event_exited.dapui_config = function()
+        ui.close()
+      end
+
+    end
   },
 }
