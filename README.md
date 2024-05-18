@@ -7,13 +7,17 @@ In order from most priority to least priority
 
 None so far!
 
+## New Feature Conditions
+As to keep the config clean and concise, I will not add new languages unless its absolutely necessary.
+If a new language is in my todo list it means I am testing it out, it doesn't mean that it will go into my config.
+
 ## Features Implemented
 Finished items in the todo list will be added to this list
 
 1. Python Support
 2. Rust Support
 3. C/C++ Support
-4. Go Support 
+4. Zig Support
 5. Tmux integration
 
 ## Tmux integration

@@ -13,17 +13,6 @@ return {
     end
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    config = function()
-      require "custom.config.whichkey"
-    end,
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
     config = function()
@@ -50,6 +39,7 @@ return {
           dotfiles = true,
         },
       }
+      vim.keymap.set("n", "<C-n>", "<Cmd>NvimTreeOpen<CR>")
     end,
   },
    {

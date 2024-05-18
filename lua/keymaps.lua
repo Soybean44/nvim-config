@@ -16,6 +16,10 @@ vim.g.maplocalleader = " "
 vim.keymap.set('n', 'j', 'gj', opts)
 vim.keymap.set('n', 'k', 'gk', opts)
 
+-- Splits
+vim.keymap.set('n', '<leader>v', '<Cmd>vsplit<CR>', opts)
+vim.keymap.set('n', '<leader>h', '<Cmd>split<CR>', opts)
+
 -- Resize with arrows
 -- delta: 2 lines
 vim.keymap.set('n', '<M-k>', ':resize -2<CR>', opts)
@@ -23,6 +27,8 @@ vim.keymap.set('n', '<M-j>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<M-l>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<M-h>', ':vertical resize +2<CR>', opts)
 
+-- Source file
+vim.keymap.set('n', '<leader>x', ':w<CR>:source %<CR>', opts)
 
 -----------------
 -- Insert mode --
