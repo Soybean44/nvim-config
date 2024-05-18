@@ -17,7 +17,7 @@ return {
     lazy = false,
     config = function()
       -- disable netrw at the very start of your init.lua
-      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrw = 2
       vim.g.loaded_netrwPlugin = 1
 
       -- set termguicolors to enable highlight groups
@@ -44,7 +44,7 @@ return {
   },
    {
     'alexghergh/nvim-tmux-navigation',
-    config = function() 
+    config = function()
       require'nvim-tmux-navigation'.setup {
         disable_when_zoomed = true, -- defaults to false
         keybindings = {
@@ -56,6 +56,14 @@ return {
           next = "<C-Space>",
         }
       }
+    end
+  },
+  {
+    'ggandor/leap.nvim',
+    dependencies="tpope/vim-repeat",
+    config=function ()
+      local leap = require("leap")
+      leap.create_default_mappings()
     end
   },
 }
