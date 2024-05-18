@@ -89,4 +89,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-require "config.nvim-cmp"
+require "custom.config.nvim-cmp"

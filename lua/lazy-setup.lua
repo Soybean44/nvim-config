@@ -1,1 +1,1 @@
-require("lazy").setup{{import = "plugins" }}
+require("lazy").setup{{import = "custom/plugins" }}

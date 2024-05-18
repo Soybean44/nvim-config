@@ -3,7 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = "folke/neodev.nvim",
     config = function()
-      require "config.lsp"
+      require "custom.config.lsp"
     end,
   },
     {
@@ -145,7 +145,7 @@ return {
   {
     "lervag/vimtex",
     config = function()
-      require "config.tex"
+      require "custom.config.tex"
     end,
   },
   'tjdevries/templ.nvim',

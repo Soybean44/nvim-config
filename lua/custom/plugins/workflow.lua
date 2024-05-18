@@ -18,7 +18,7 @@ return {
       vim.o.timeoutlen = 300
     end,
     config = function()
-      require "config.whichkey"
+      require "custom.config.whichkey"
     end,
   },
   {

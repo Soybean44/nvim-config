@@ -5,7 +5,7 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     lazy = false,
     config = function()
-      require "config.lualine"
+      require "custom.config.lualine"
     end,
   },
   "nvim-lua/plenary.nvim",
