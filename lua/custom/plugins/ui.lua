@@ -26,7 +26,7 @@ return {
       vim.keymap.set("n", "<leader>gb", telescope.git_branches)
       vim.keymap.set("n", "<leader>fb", telescope.buffers)
       vim.keymap.set("n", "<leader>fh", telescope.help_tags)
-      vim.keymap.set("n", "<leader>ff", telescope.)
+      vim.keymap.set("n", "<leader>ff", telescope.find_files)
     end
   },
 }
