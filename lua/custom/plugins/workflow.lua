@@ -8,7 +8,9 @@ return {
       -- Only one of these is needed, not both.
       "nvim-telescope/telescope.nvim", -- optional
     },
-    config = true
+    config = function ()
+      require "custom.config.neogit"
+    end
   },
   {
     "folke/which-key.nvim",

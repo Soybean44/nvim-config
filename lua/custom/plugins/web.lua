@@ -8,7 +8,7 @@ return {
     "alvan/vim-closetag",
     config = function()
       -- <C-y> , to use emmet
-      vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.svelte"
+      vim.g.closetag_filenames = "*.html"
     end,
   },
 }

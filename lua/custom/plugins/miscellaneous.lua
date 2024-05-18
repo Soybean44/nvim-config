@@ -1,11 +1,5 @@
 return {
   {
-    "David-Kunz/gen.nvim",
-    config = function()
-      require("gen").model = "mistral:instruct" -- default 'mistral:instruct'
-    end,
-  },
-  {
     "andweeb/presence.nvim",
     opts = {
       -- General options

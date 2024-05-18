@@ -29,24 +29,8 @@ lspconfig.pylsp.setup {
     },
   },
 }
-lspconfig.texlab.setup {}
 lspconfig.zls.setup {}
-lspconfig.svelte.setup {}
-lspconfig.ltex.setup {}
 lspconfig.clangd.setup {}
-lspconfig.gopls.setup {}
-lspconfig.templ.setup {}
-lspconfig.ols.setup {}
-lspconfig.tailwindcss.setup {
-  filetypes = {
- "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "python", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ"
-  },
-  settings = {
-    tailwindCSS = {
-       classAttributes = { "class", "className", "class:list", "classList", "ngClass", "class_" },
-    }
-  }
-}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {

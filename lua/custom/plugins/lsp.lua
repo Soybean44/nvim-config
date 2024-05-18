@@ -6,20 +6,6 @@ return {
       require "custom.config.lsp"
     end,
   },
-    {
-    "williamboman/mason.nvim",
-    init = function()
-      require("mason").setup {
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
-      }
-    end,
-  },
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -69,53 +55,7 @@ return {
       })
     end,
   },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    config = function()
-      require("mason-lspconfig").setup {
-        ensure_installed = { "lua_ls", "pylsp", "texlab", "zls", "svelte", "ltex", "ols" },
-        automatic_installation = true,
-      }
-    end,
-  },
-  {
-    -- c++ implementation generation
-    "eriks47/generate.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-  },
-  {
-    "czheo/mojo.vim",
-    ft = { "mojo" },
-    init = function()
-      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-        pattern = { "*.🔥" },
-        callback = function()
-          if vim.bo.filetype ~= "mojo" then
-            vim.bo.filetype = "mojo"
-          end
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "mojo",
-        callback = function()
-          local modular = vim.env.MODULAR_HOME
-          local lsp_cmd = modular .. "/pkg/packages.modular.com_mojo/bin/mojo-lsp-server"
-
-          vim.bo.expandtab = true
-          vim.bo.shiftwidth = 4
-          vim.bo.softtabstop = 4
-
-          vim.lsp.start({
-            name = "mojo",
-            cmd = { lsp_cmd },
-          })
-        end,
-      })
-    end,
-  },
-  {
+    {
     "folke/neodev.nvim",
     dependencies = "neovim/nvim-lspconfig",
     opts = {
@@ -142,11 +82,4 @@ return {
       pathStrict = true,
     }
   },
-  {
-    "lervag/vimtex",
-    config = function()
-      require "custom.config.tex"
-    end,
-  },
-  'tjdevries/templ.nvim',
 }
