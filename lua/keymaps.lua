@@ -34,7 +34,7 @@ vim.keymap.set('n', '<leader>x', ':w<CR>:source %<CR>', opts)
 -- Insert mode --
 -----------------
 
-vim.keymap.set('i', 'jj', '<Esc>', opts)
+vim.keymap.set('i', '<C-c>', '<Esc>', opts)
 
 -----------------
 -- Visual mode --
