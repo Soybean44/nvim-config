@@ -25,6 +25,7 @@ lspconfig.pylsp.setup {
         pyflakes = {enabled = false},
         pylint = {enabled = false},
         pycodestyle = {enabled = false},
+        jedi_symbols = {include_import_symbols = true},
       },
     },
   },
