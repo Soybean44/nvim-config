@@ -30,14 +30,15 @@ lspconfig.pylsp.setup {
     },
   },
 }
-lspconfig.zls.setup {}
-lspconfig.clangd.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ["rust-analyzer"] = {},
   },
 }
+lspconfig.zls.setup {}
+lspconfig.clangd.setup {}
+lspconfig.tsserver.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -19,6 +19,7 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'emmet_vim' },
+    { name = 'lazydev' },
   }),
   mapping = cmp.mapping.preset.insert({
     ['<C-Space>'] = cmp.mapping.complete(),
