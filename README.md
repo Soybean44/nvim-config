@@ -18,7 +18,8 @@ Finished items in the todo list will be added to this list
 2. Rust Support
 3. C/C++ Support
 4. Zig Support
-5. Tmux integration
+5. Typescript Support
+6. Tmux integration
 
 ## Tmux integration
 When using tmux I have made it, so you can run a command. <M-c> opens up a harpoon list with the current commands, with the top most recent command being run.
