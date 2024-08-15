@@ -6,6 +6,7 @@ vim.opt.mouse = 'a'               -- allow the mouse to be used in Nvim
 vim.filetype.add({
     extension = {
         templ = "templ",
+        asm = "fasm",
     },
 })
 
