@@ -7,6 +7,7 @@ vim.filetype.add({
     extension = {
         templ = "templ",
         asm = "fasm",
+        s = "fasm",
     },
 })
 
