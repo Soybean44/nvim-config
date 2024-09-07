@@ -40,9 +40,6 @@ return {
           astyle = {
             prepend_args = {"-A14", "-t"}
           },
-          rustfmt = {
-            prepend_args = {"--edition", "2021"}
-          },
         }
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
