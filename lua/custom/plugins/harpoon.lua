@@ -26,6 +26,14 @@ return {
         :sync()
         return stdout, ret, stderr
       end
+      if string.match(cmd, "$CURRENT_FILE") then
+        -- Get the current buffer ID
+        local buf_id = vim.api.nvim_get_current_buf()
+
+        -- Get the file path of the current buffer
+        local file_path = vim.api.nvim_buf_get_name(buf_id)
+        cmd = string.gsub(cmd, "$CURRENT_FILE", file_path)
+      end
       local _, ret, stderr = get_os_command_output({
         "tmux",
         "send-keys",
