@@ -9,7 +9,7 @@ local opts = {
 -----------------
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 -- Hint: see `:h vim.map.set()`
 -- Remap j and k to gj and gk
