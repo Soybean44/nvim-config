@@ -49,6 +49,17 @@ ls.add_snippets(nil, {
       },
     })
   },
+  quarto = {
+    snip({
+      trig="pycode",
+      namr = "Python codeblock",
+      dscr = "Python codeblock",
+    },{
+      text {'```{python}', ''},
+      insert(1, "code"),
+      text {'', '```'}
+    }),
+  },
   python = {
     snip({
       trig = "info",
