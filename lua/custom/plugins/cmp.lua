@@ -13,6 +13,14 @@ return {
   },
   "L3MON4D3/LuaSnip",
   {
+    "iurimateus/luasnip-latex-snippets.nvim",
+    -- vimtex isn't required if using treesitter
+    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require("custom.config.latex")
+    end,
+  },
+  {
     "saadparwaiz1/cmp_luasnip",
     dependencies = { "nvim-cmp", "L3MON4D3/LuaSnip" },
   },
