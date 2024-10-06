@@ -19,6 +19,7 @@ return {
     config = function()
       require("custom.config.latex")
     end,
+    ft="tex"
   },
   {
     "saadparwaiz1/cmp_luasnip",
