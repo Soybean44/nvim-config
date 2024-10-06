@@ -19,6 +19,7 @@ Finished items in the todo list will be added to this list
 3. C/C++ Support
 4. Zig Support
 5. Typescript Support
+5. Java Support (Mainly for Modded MC)
 6. Tmux integration
 
 ## Tmux integration
