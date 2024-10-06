@@ -6,7 +6,7 @@ lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       completion = {
-        callSnippet = "Replace"
+        callSnippet = "Replace",
       },
       diagnostics = {
         disable = { "unused-local", "undefined-field" },
@@ -22,10 +22,10 @@ lspconfig.pylsp.setup {
   settings = {
     pylsp = {
       plugins = {
-        pyflakes = {enabled = false},
-        pylint = {enabled = false},
-        pycodestyle = {enabled = false},
-        jedi_symbols = {include_import_symbols = true},
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        pycodestyle = { enabled = false },
+        jedi_symbols = { include_import_symbols = true },
       },
     },
   },
@@ -36,7 +36,7 @@ lspconfig.rust_analyzer.setup {
     ["rust-analyzer"] = {},
   },
 }
-lspconfig.eslint.setup({
+lspconfig.eslint.setup {
   --- ...
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -44,10 +44,11 @@ lspconfig.eslint.setup({
       command = "EslintFixAll",
     })
   end,
-})
+}
 lspconfig.zls.setup {}
 lspconfig.clangd.setup {}
-lspconfig.ts_ls.setup{}
+lspconfig.ts_ls.setup {}
+lspconfig.jdtls.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

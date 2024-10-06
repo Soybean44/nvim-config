@@ -38,9 +38,9 @@ return {
         },
         formatters = {
           astyle = {
-            prepend_args = {"-A14", "-t"}
+            prepend_args = { "-A14", "-t" },
           },
-        }
+        },
       }
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format {
@@ -58,13 +58,25 @@ return {
     end,
   },
   {
-    'lervag/vimtex',
+    "lervag/vimtex",
     config = function()
-      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_view_method = "zathura"
       vim.g.maplocalleader = ","
-      vim.g.vimtex_view_general_viewer = 'okular'
+      vim.g.vimtex_view_general_viewer = "okular"
       vim.g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"
-      vim.g.vimtex_compiler_method = 'latexrun'
-    end
+      vim.g.vimtex_compiler_method = "latexrun"
+    end,
+    ft = "tex",
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+    config = function()
+      local config = {
+        cmd = { vim.fn.system "whereis jdtls | awk '{print $2}'" },
+        root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+      }
+      require("jdtls").start_or_attach(config)
+    end,
   },
 }
