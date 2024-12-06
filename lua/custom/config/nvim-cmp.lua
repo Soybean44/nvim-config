@@ -17,9 +17,9 @@ cmp.setup {
   sources = cmp.config.sources {
     { name = "luasnip" }, -- For luasnip users.
     { name = "nvim_lsp" },
-    { name = "buffer" },
     { name = "emmet_vim" },
     { name = "lazydev" },
+    { name = "buffer" },
   },
   mapping = cmp.mapping.preset.insert {
     ["<C-Space>"] = cmp.mapping.complete(),
