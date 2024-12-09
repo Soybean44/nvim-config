@@ -16,13 +16,19 @@ return {
     "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
-    dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
       default_file_explorer = true,
+      columns = { "icon" },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<M-h>"] = "actions.select_split",
+      },
+      view_options = {
+        show_hidden = true,
+      },
     },
-    config = function()
-      vim.keymap.set({ "n", "v" }, "<C-n>", "<CMD>Oil<CR>")
-    end,
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
   {
     "alexghergh/nvim-tmux-navigation",
