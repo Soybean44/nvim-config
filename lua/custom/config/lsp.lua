@@ -55,8 +55,9 @@ lspconfig.pylsp.setup {
         pylint = {
           enabled = true,
           executable = "pylint",
-          args = { "--disable=missing-docstring" },
+          args = { "--disable=missing-docstring,invalid-name" },
         },
+        rope = { enabled = true },
         pylsp_mypy = { enabled = true },
         jedi_symbols = { include_import_symbols = true },
       },

@@ -10,7 +10,6 @@ local fmt = require("luasnip.extras.fmt").fmt
 local date = function()
   return { os.date "%Y-%m-%d" }
 end
-
 ls.add_snippets(nil, {
   python = {
     s(
@@ -40,26 +39,5 @@ ls.add_snippets(nil, {
     }, {
       t { 'if __name__ == "__main__":', "\t" },
     }),
-    s(
-      {
-        trig = "def",
-        namr = "function",
-        descr = "creates a function",
-      },
-      fmt(
-        [[
-        def {}({}):
-          {}
-        ]],
-        {
-          i(1, "func_name"),
-          i(2),
-          i(3, "pass"),
-        },
-        {
-          indent_string = [[\t]],
-        }
-      )
-    ),
   },
 })
