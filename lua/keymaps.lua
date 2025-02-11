@@ -27,8 +27,8 @@ vim.keymap.set("n", "<M-j>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<M-l>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<M-h>", ":vertical resize +2<CR>", opts)
 
--- Oil
-vim.keymap.set("n", "-", "<Cmd>Oil<CR>", opts)
+-- Yazi
+vim.keymap.set("n", "-", "<Cmd>Yazi<CR>", opts)
 
 -- Source file
 vim.keymap.set("n", "<leader>x", ":w<CR>:source %<CR>", opts)
