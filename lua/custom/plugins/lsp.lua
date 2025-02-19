@@ -35,6 +35,7 @@ return {
           c = { "astyle" },
           rust = { "rustfmt" },
           zig = { "zig fmt" },
+          ocaml = { "dune fmt" },
         },
         formatters = {
           astyle = {
