@@ -83,6 +83,7 @@ lspconfig.zls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
+lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
