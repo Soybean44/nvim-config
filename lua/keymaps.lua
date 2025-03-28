@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
   noremap = true, -- non-recursive
-  silent = true, -- do not show message
+  silent = true,  -- do not show message
 }
 
 -----------------
@@ -26,6 +26,9 @@ vim.keymap.set("n", "<M-k>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<M-j>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<M-l>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<M-h>", ":vertical resize +2<CR>", opts)
+
+-- kill buffer
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
 
 -- Yazi
 vim.keymap.set("n", "-", "<Cmd>Yazi<CR>", opts)
