@@ -21,6 +21,22 @@ ls.add_snippets("tex", {
     fmta("$$\n<>\n$$<>", { i(1), i(2) }),
     { condition = not_math }
   ),
+  s(
+    { trig = "vec", snippetType = "autosnippet", priority = 100 },
+    fmta("\\vec{<>}<>", {
+      i(1),
+      i(2)
+    }),
+    { condition = math }
+  ),
+  s(
+    { trig = "avg", snippetType = "autosnippet", priority = 100 },
+    fmta("\\langle <> \\rangle<>", {
+      i(1),
+      i(2)
+    }),
+    { condition = math }
+  ),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
   s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
   s(
