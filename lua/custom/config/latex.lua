@@ -30,6 +30,14 @@ ls.add_snippets("tex", {
     { condition = math }
   ),
   s(
+    { trig = "\"", snippetType = "autosnippet", priority = 100 },
+    fmta("\\text{<>}<>", {
+      i(1),
+      i(2)
+    }),
+    { condition = math }
+  ),
+  s(
     { trig = "avg", snippetType = "autosnippet", priority = 100 },
     fmta("\\langle <> \\rangle<>", {
       i(1),
