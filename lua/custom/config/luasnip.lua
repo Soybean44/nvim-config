@@ -23,6 +23,10 @@ vim.keymap.set({ "i", "s" }, "<C-p>", function()
   end
 end, { silent = true })
 
+vim.keymap.set({ "i", "s" }, '<C-y>', function()
+  ls.expand()
+end, { silent = true })
+
 local date = function()
   return { os.date "%Y-%m-%d" }
 end
