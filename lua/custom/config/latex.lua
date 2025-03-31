@@ -45,6 +45,8 @@ ls.add_snippets("tex", {
     }),
     { condition = math }
   ),
+  s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
+  s({ trig = ",,", snippetType = "autosnippet", priority = 101 }, t "\\,", { condition = math }),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
   s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
   s(
