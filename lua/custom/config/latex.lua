@@ -45,6 +45,15 @@ ls.add_snippets("tex", {
     }),
     { condition = math }
   ),
+  s(
+    { trig = "par", snippetType = "autosnippet", priority = 100 },
+    fmta("\\frac{\\partial <>}{\\partial <>}<>", {
+      i(1, "y"),
+      i(2, "x"),
+      i(3)
+    }),
+    { condition = math }
+  ),
   s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
   s({ trig = ",,", snippetType = "autosnippet", priority = 101 }, t "\\,", { condition = math }),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
