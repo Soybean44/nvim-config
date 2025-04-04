@@ -7,8 +7,8 @@ local i = ls.insert_node
 local t = ls.text_node
 local fmta = require("luasnip.extras.fmt").fmta
 local utils = require "luasnip-latex-snippets.util.utils"
-local not_math = utils.with_opts(utils.not_math, false) -- when using treesitter, change false to true
-local math = utils.with_opts(utils.is_math, false)
+local not_math = utils.with_opts(utils.not_math, true) -- when using treesitter, change false to true
+local math = utils.with_opts(utils.is_math, true)
 
 ls.add_snippets("tex", {
   s(
@@ -58,6 +58,8 @@ ls.add_snippets("tex", {
   s({ trig = ",,", snippetType = "autosnippet", priority = 101 }, t "\\,", { condition = math }),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
   s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
+  s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "\\pm", { condition = math }),
+  s({ trig = "-=", snippetType = "autosnippet", priority = 100 }, t "\\mp", { condition = math }),
   s(
     { trig = "gath", snippetType = "autosnippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),
