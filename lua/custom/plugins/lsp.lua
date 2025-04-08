@@ -94,7 +94,7 @@ return {
         },
       }
     end,
-    ft = "tex",
+    ft = { "tex", "markdown" },
   },
   {
     "mfussenegger/nvim-jdtls",

@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-require "custom.config.luasnip"
 local ls = require "luasnip"
 
 local lspkind = require "lspkind"

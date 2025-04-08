@@ -1,28 +1,106 @@
 return {
   {
-    "andweeb/presence.nvim",
-    opts = {
-      -- General options
-      auto_update = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-      neovim_image_text = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-      main_image = "file", -- Main image display (either "neovim" or "file")
-      log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-      debounce_timeout = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-      enable_line_number = false, -- Displays the current line number instead of the current project
-      blacklist = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-      buttons = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-      file_assets = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-      show_time = true, -- Show the timer
+    "nvim-neorg/neorg",
+    lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                uni = "~/Documents/neorg/university",
+                personal = "~/Documents/neorg/personal",
+              },
+              default_workspace = "uni",
+            },
+          },
+        },
+      }
 
-      -- Rich Presence text options
-      editing_text = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-      file_explorer_text = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-      git_commit_text = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-      plugin_manager_text = "Managing plugins", -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-      reading_text = "Reading %s", -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-      workspace_text = "Working on %s", -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-      line_number_text = "Line %s out of %s", -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-    },
+      vim.wo.foldlevel = 99
+      vim.wo.conceallevel = 2
+    end,
+  },
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      image = {
+        env = {
+          SNACKS_GHOSTTY = true
+        },
+        doc = {
+          -- enable image viewer for documents
+          -- a treesitter parser must be available for the enabled languages.
+          enabled = true,
+          -- render the image inline in the buffer
+          -- if your env doesn't support unicode placeholders, this will be disabled
+          -- takes precedence over `opts.float` on supported terminals
+          inline = true,
+          -- render the image in a floating window
+          -- only used if `opts.inline` is disabled
+          float = true,
+          max_width = 80,
+          max_height = 40,
+          -- Set to `true`, to conceal the image text when rendering inline.
+          -- (experimental)
+          ---@param lang string tree-sitter language
+          ---@param type snacks.image.Type image type
+          conceal = function(lang, type)
+            -- only conceal math expressions
+            return type == "math"
+          end,
+        },
+      },
+      convert = {
+        notify = true, -- show a notification on error
+        ---@type snacks.image.args
+        mermaid = function()
+          local theme = vim.o.background == "light" and "neutral" or "dark"
+          return { "-i", "{src}", "-o", "{file}", "-b", "transparent", "-t", theme, "-s", "{scale}" }
+        end,
+        ---@type table<string,snacks.image.args>
+        magick = {
+          default = { "{src}[0]", "-scale", "1920x1080>" }, -- default for raster images
+          vector = { "-density", 192, "{src}[0]" },         -- used by vector images like svg
+          math = { "-density", 192, "{src}[0]", "-trim" },
+          pdf = { "-density", 192, "{src}[0]", "-background", "white", "-alpha", "remove", "-trim" },
+        },
+      },
+      math = {
+        enabled = true, -- enable math expression rendering
+        -- in the templates below, `${header}` comes from any section in your document,
+        -- between a start/end header comment. Comment syntax is language-specific.
+        -- * start comment: `// snacks: header start`
+        -- * end comment:   `// snacks: header end`
+        typst = {
+          tpl = [[
+          #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
+          #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
+          #set text(size: 12pt, fill: rgb("${color}"))
+          ${header}
+          ${content}]],
+        },
+        latex = {
+          font_size = "tiny", -- see https://www.sascha-frank.com/latex-font-size.html
+          -- for latex documents, the doc packages are included automatically,
+          -- but you can add more packages here. Useful for markdown documents.
+          packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
+          tpl = [[
+          \documentclass[preview,border=0pt,varwidth,12pt]{standalone}
+          \usepackage{${packages}}
+          \begin{document}
+          ${header}
+          { \${font_size} \selectfont
+          \color[HTML]{${color}}
+          ${content}}
+          \end{document}]],
+        },
+      },
+    }
   },
   'ThePrimeagen/vim-be-good',
 }

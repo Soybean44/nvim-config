@@ -20,6 +20,7 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
+      require "custom.config.luasnip"
     end,
   },
   {
@@ -27,8 +28,8 @@ return {
     -- vimtex isn't required if using treesitter
     requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = function()
-      require "custom.config.latex"
+      require "custom.snippets.latex"
     end,
-    ft = "tex",
+    ft = { "tex", "markdown" },
   },
 }

@@ -55,7 +55,7 @@ lspconfig.pylsp.setup {
         pylint = {
           enabled = true,
           executable = "pylint",
-          args = { "--disable=missing-docstring,invalid-name,bad-indentation" },
+          args = { "--disable=missing-docstring,invalid-name,bad-indentation,redefined-outer-name" },
         },
         rope = { enabled = true },
         pylsp_mypy = { enabled = true },
