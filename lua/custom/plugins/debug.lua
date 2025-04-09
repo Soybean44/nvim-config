@@ -7,7 +7,7 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       "mfussenegger/nvim-dap-python",
     },
-    config = function ()
+    config = function()
       local dap = require("dap")
       local ui = require("dapui")
 
@@ -71,16 +71,15 @@ return {
         ui.close()
       end
 
-      vim.keymap.set("n", "<leader>dq", dap.terminate)
-      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-      vim.keymap.set("n", "<leader>dr", dap.continue)
+      vim.keymap.set("n", "<leader>dq", ":DapTerminate<CR>")
+      vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>")
+      vim.keymap.set("n", "<leader>dr", ":DapContinue<CR>")
 
-      vim.keymap.set("n", "<F1>", dap.step_into)
-      vim.keymap.set("n", "<F2>", dap.step_over)
-      vim.keymap.set("n", "<F3>", dap.step_out)
-      vim.keymap.set("n", "<F4>", dap.step_back)
-      vim.keymap.set("n", "<F9>", dap.restart)
-
+      vim.keymap.set("n", "<F1>", ":DapStepInto<CR>")
+      vim.keymap.set("n", "<F2>", ":DapStepOver<CR>")
+      vim.keymap.set("n", "<F3>", ":DapStepOut<CR>")
+      vim.keymap.set("n", "<F4>", ":DapStepBack<CR>")
+      vim.keymap.set("n", "<F9>", ":DapRestart<CR>")
     end
   },
 }
