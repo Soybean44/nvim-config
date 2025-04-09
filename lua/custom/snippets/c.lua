@@ -11,11 +11,10 @@ ls.add_snippets(nil, {
       dscr = "hello world program",
     }, {
       text {
-        "#include <iostream>",
+        "#include <stdio.h>",
         "",
-        "using namespace std;",
         "int main (void) {",
-        '  cout << "Hello World!" << endl;',
+        '  printf("Hello World!\n");',
         "  return 0;",
         "}",
       },
