@@ -32,7 +32,9 @@ vim.opt.splitright = true     -- open new horizontal splits right
 vim.opt.conceallevel = 1
 
 -- Neovide
-vim.g.neovide_scale_factor = 0.6
+vim.g.neovide_scale_factor = 0.54
+vim.g.neovide_opacity = 0.4
+
 
 -- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
