@@ -22,6 +22,7 @@ return {
           default = 1,
         }
       }
+      vim.keymap.set("n", "<leader>gl", ":VimwikiNextLink<CR>:VimwikiFollowLink<CR>")
     end
   },
   {
