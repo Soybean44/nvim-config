@@ -14,6 +14,9 @@ require("nvim-treesitter.configs").setup {
       node_decremental = "grm",
     },
   },
+  fold = {
+    enable = true,
+  },
 }
 
 vim.wo.foldmethod = "expr"

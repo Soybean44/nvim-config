@@ -135,6 +135,7 @@ local snippets = {
   s({ trig = "@t", snippetType = "autosnippet", priority = 100 }, t "\\theta ", { condition = math }),
   s({ trig = "@g", snippetType = "autosnippet", priority = 100 }, t "\\gamma ", { condition = math }),
   s({ trig = "@b", snippetType = "autosnippet", priority = 100 }, t "\\beta ", { condition = math }),
+  s({ trig = "@o", snippetType = "autosnippet", priority = 100 }, t "\\omega ", { condition = math }),
   s(
     { trig = "gath", snippetType = "snippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),

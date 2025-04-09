@@ -1,28 +1,28 @@
 return {
   {
-    "nvim-neorg/neorg",
-    lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                uni = "~/Documents/neorg/university",
-                personal = "~/Documents/neorg/personal",
-              },
-              default_workspace = "uni",
-            },
-          },
-        },
+    'vimwiki/vimwiki',
+    lazy = false,
+    init = function()
+      vim.g.vimwiki_folding = 'custom'
+      vim.g.markdown_folding = 1
+      vim.wo.foldmethod = "expr"
+      vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "vimwiki",
+        callback = function()
+          vim.opt_local.filetype = "markdown"
+        end,
+      })
+      vim.g.vimwiki_list = {
+        {
+          path = '~/Documents/notes',
+          syntax = 'markdown',
+          ext = 'md',
+          index = 'index',
+          default = 1,
+        }
       }
-
-      vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
-    end,
+    end
   },
   {
     "folke/snacks.nvim",
@@ -65,7 +65,7 @@ return {
         ---@type table<string,snacks.image.args>
         magick = {
           default = { "{src}[0]", "-scale", "1920x1080>" }, -- default for raster images
-          vector = { "-density", 192, "{src}[0]" },         -- used by vector images like svg
+          vector = { "-density", 193, "{src}[0]" },         -- used by vector images like svg
           math = { "-density", 192, "{src}[0]", "-trim" },
           pdf = { "-density", 192, "{src}[0]", "-background", "white", "-alpha", "remove", "-trim" },
         },
@@ -85,7 +85,7 @@ return {
           ${content}]],
         },
         latex = {
-          font_size = "tiny", -- see https://www.sascha-frank.com/latex-font-size.html
+          font_size = "Large", -- see https://www.sascha-frank.com/latex-font-size.html
           -- for latex documents, the doc packages are included automatically,
           -- but you can add more packages here. Useful for markdown documents.
           packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
