@@ -56,4 +56,10 @@ return {
       leap.create_default_mappings()
     end,
   },
+  {
+    "nosduco/remote-sshfs.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    opts = {
+    },
+  },
 }
