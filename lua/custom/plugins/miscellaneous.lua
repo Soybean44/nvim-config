@@ -15,7 +15,7 @@ return {
       })
       vim.g.vimwiki_list = {
         {
-          path = '~/Documents/notes',
+          path = '~/syncthing/notes',
           syntax = 'markdown',
           ext = 'md',
           index = 'index',
