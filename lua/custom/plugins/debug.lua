@@ -17,46 +17,30 @@ return {
       dap.adapters.gdb = {
         type = "executable",
         command = "gdb",
-        args = { "-i", "dap" }
+        args = {
+          "--interpreter=dap",
+          "--eval-command", "set print pretty on",
+        },
+        options = {
+          cwd = vim.fn.getcwd()
+        }
       }
 
       dap.configurations.c = {
         {
-          name = "gdb",
+          name = "Launch",
           type = "gdb",
           request = "launch",
-          -- program = "/usr/bin/gdb",
           program = function()
-            return vim.fn.input({
-              prompt = "Path to Debuggable Executable: ",
-              default = vim.fn.getcwd() .. '/',
-              completion = "file"
-            })
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
           end,
           cwd = "${workspaceFolder}",
-          stopAtBeginningOfMainSubprogram = false,
+          stopAtEntry = false,
           console = "integratedTerminal"
         },
       }
 
-      dap.configurations.cpp = {
-        {
-          name = "gdb",
-          type = "gdb",
-          request = "launch",
-          -- program = "/usr/bin/gdb",
-          program = function()
-            return vim.fn.input({
-              prompt = "Path to Debuggable Executable: ",
-              default = vim.fn.getcwd() .. '/',
-              completion = "file"
-            })
-          end,
-          cwd = "${workspaceFolder}",
-          stopAtBeginningOfMainSubprogram = false,
-          console = "integratedTerminal"
-        },
-      }
+      dap.configurations.cpp = dap.configurations.c
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
@@ -73,13 +57,23 @@ return {
 
       vim.keymap.set("n", "<leader>dq", ":DapTerminate<CR>")
       vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>")
-      vim.keymap.set("n", "<leader>dr", ":DapContinue<CR>")
+      -- vim.keymap.set("n", "<leader>dr", ":DapContinue<CR>")
 
       vim.keymap.set("n", "<F1>", ":DapStepInto<CR>")
       vim.keymap.set("n", "<F2>", ":DapStepOver<CR>")
       vim.keymap.set("n", "<F3>", ":DapStepOut<CR>")
       vim.keymap.set("n", "<F4>", ":DapStepBack<CR>")
       vim.keymap.set("n", "<F9>", ":DapRestart<CR>")
+    end
+  },
+  {
+    'Weissle/persistent-breakpoints.nvim',
+    dependencies = "mfussenegger/nvim-dap",
+    init = function()
+      require('persistent-breakpoints').setup {
+        load_breakpoints_event = { "BufReadPost" }
+      }
+      vim.keymap.set("n", "<leader>db", ":PBToggleBreakpoint<CR>")
     end
   },
 }
