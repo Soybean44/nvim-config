@@ -3,7 +3,6 @@ require("nvim-treesitter.configs").setup {
   ensure_installed = { "python", "lua", "vim", "vimdoc", "rust", "c", "cpp", "markdown", "zig", "latex" },
   highlight = {
     enable = true,
-    disable = { "latex" }
   },
   incremental_selection = {
     enable = true,
