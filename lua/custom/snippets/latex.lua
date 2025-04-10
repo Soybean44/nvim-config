@@ -146,6 +146,28 @@ local snippets = {
     fmta("\\begin{align*}\n<>\n\\end{align*}<>", { i(1), i(2) }),
     { condition = not_math }
   ),
+  s({ trig = "iden(%d)", regTrig = true, snippetType = "autosnippet", priority = 100 },
+    f(function(args, snip)
+      local n = tonumber(snip.captures[1])
+      local arr = {}
+
+      for j = 1, n do
+        arr[j] = {}
+        for k = 1, n do
+          arr[j][k] = (k == j) and 1 or 0
+        end
+      end
+
+      local output = { "\\begin{pmatrix}" }
+      for _, el in ipairs(arr) do
+        local row = table.concat(el, " & ")
+        table.insert(output, row .. "\\\\")
+      end
+      table.insert(output, "\\end{pmatrix}")
+      return output
+    end, {}),
+    { condition = math }
+  )
 }
 
 ls.add_snippets("tex", snippets)
