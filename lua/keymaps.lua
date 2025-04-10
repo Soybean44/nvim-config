@@ -19,6 +19,7 @@ vim.keymap.set("n", "k", "gk", opts)
 -- Splits
 vim.keymap.set("n", "<leader>v", "<Cmd>vsplit<CR>", opts)
 vim.keymap.set("n", "<leader>h", "<Cmd>split<CR>", opts)
+vim.keymap.set("n", "<leader>h", "<Cmd>split<CR>", opts)
 
 -- Resize with arrows
 -- delta: 2 lines
@@ -26,6 +27,19 @@ vim.keymap.set("n", "<M-k>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<M-j>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<M-l>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<M-h>", ":vertical resize +2<CR>", opts)
+
+vim.keymap.set("n", "<M-up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<M-down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<M-right>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<M-left>", ":vertical resize +2<CR>", opts)
+
+-- open config
+vim.keymap.set('n', '<leader>cc', function()
+  -- Change to the Neovim config directory
+  vim.cmd('cd ~/.config/nvim')
+  -- Open the init.lua file
+  vim.cmd('edit init.lua')
+end, { desc = "Change to Neovim config and open init.lua" })
 
 -- kill buffer
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
