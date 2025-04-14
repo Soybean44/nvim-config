@@ -26,6 +26,7 @@ vim.opt.expandtab = true -- tabs are spaces, mainly because of python
 -- UI config
 vim.opt.number = true         -- show absolute number
 vim.opt.relativenumber = true -- add numbers to each line on the left side
+vim.opt.linebreak = true      -- change wrapping to be on words and not on the next character to aid in readability
 vim.opt.cursorline = false    -- highlight cursor line underneath the cursor horizontally
 vim.opt.splitbelow = true     -- open new vertical split bottom
 vim.opt.splitright = true     -- open new horizontal splits right
