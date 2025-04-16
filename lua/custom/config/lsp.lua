@@ -82,6 +82,7 @@ lspconfig.eslint.setup {
 lspconfig.zls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
+lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
