@@ -1,6 +1,6 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Setup language servers.
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
   on_init = function(client)
@@ -82,7 +82,6 @@ lspconfig.eslint.setup {
 lspconfig.zls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
-lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
