@@ -18,7 +18,6 @@ local utils = require "luasnip-latex-snippets.util.utils"
 local not_math = utils.with_opts(utils.not_math, treesitter) -- when using treesitter, change false to true
 local math = utils.with_opts(utils.is_math, treesitter)
 
-
 local snippets = {
   s(
     { trig = "mk", snippetType = "autosnippet", priority = 100 },
@@ -78,6 +77,14 @@ local snippets = {
     { condition = math }
   ),
   s(
+    { trig = "text", snippetType = "autosnippet", priority = 100 },
+    fmta("\\text{<>}<>", {
+      i(1),
+      i(2)
+    }),
+    { condition = math }
+  ),
+  s(
     { trig = "avg", snippetType = "autosnippet", priority = 100 },
     fmta("\\langle <> \\rangle<>", {
       i(1),
@@ -125,6 +132,7 @@ local snippets = {
     { condition = not_math }
   ),
   s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
+  s({ trig = "fall", snippetType = "autosnippet", priority = 101 }, t "\\forall", { condition = math }),
   s({ trig = ",,", snippetType = "autosnippet", priority = 100 }, t "\\,", { condition = math }),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
   s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
@@ -136,6 +144,7 @@ local snippets = {
   s({ trig = "@g", snippetType = "autosnippet", priority = 100 }, t "\\gamma ", { condition = math }),
   s({ trig = "@b", snippetType = "autosnippet", priority = 100 }, t "\\beta ", { condition = math }),
   s({ trig = "@o", snippetType = "autosnippet", priority = 100 }, t "\\omega ", { condition = math }),
+  s({ trig = "@l", snippetType = "autosnippet", priority = 100 }, t "\\lambda ", { condition = math }),
   s(
     { trig = "gath", snippetType = "snippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),
