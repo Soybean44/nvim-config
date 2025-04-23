@@ -152,7 +152,7 @@ local snippets = {
   ),
   s(
     { trig = "ali", snippetType = "snippet", priority = 100 },
-    fmta("\\begin{align*}\n<>\n\\end{align*}<>", { i(1), i(2) }),
+    fmta("\\begin{aligned}\n<>\n\\end{aligned}<>", { i(1), i(2) }),
     { condition = not_math }
   ),
   s({ trig = "iden(%d)", regTrig = true, snippetType = "autosnippet", priority = 100 },
