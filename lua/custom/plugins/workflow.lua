@@ -59,7 +59,11 @@ return {
   {
     "nosduco/remote-sshfs.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
-    opts = {
-    },
+    init = function()
+      require('remote-sshfs').setup {}
+      require('telescope').load_extension 'remote-sshfs'
+      local api = require('remote-sshfs.api')
+      vim.keymap.set('n', '<leader>rm', api.connect, {})
+    end
   },
 }
