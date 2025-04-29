@@ -42,7 +42,7 @@ vim.keymap.set('n', '<leader>cc', function()
 end, { desc = "Change to Neovim config and open init.lua" })
 
 -- kill buffer
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
+vim.keymap.set("n", "<leader>bd", ":bdelete!<CR>", opts)
 
 -- Yazi
 vim.keymap.set("n", "-", "<Cmd>Yazi<CR>", opts)
