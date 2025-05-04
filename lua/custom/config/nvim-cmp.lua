@@ -22,7 +22,6 @@ cmp.setup {
   sources = cmp.config.sources {
     { name = "luasnip" }, -- For luasnip users.
     { name = "nvim_lsp" },
-    { name = "cmp_r" },
     { name = "path" },
     { name = "emmet_vim" },
     { name = "lazydev" },
@@ -62,4 +61,3 @@ cmp.setup {
     },
   },
 }
-require("cmp_r").setup({})

@@ -109,7 +109,11 @@ return {
     ft = { "r", "rmd", "quarto" },
     config = function()
       local opts = {
-        external_term = "tmux split-window -hdl 80"
+        external_term = "tmux split-window -hdl 80",
+        view_df = {
+          open_app = "vdata",
+          csv_sep = ","
+        }
       }
       require("r").setup(opts)
 
