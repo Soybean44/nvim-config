@@ -13,6 +13,17 @@ ls.add_snippets(nil, {
       text { "```{python}", "" },
       insert(1, "code"),
       text { "", "```" },
+    }), -- For r version of this snippet just use <M-r>
+    snip({
+      trig = "info",
+      namr = "Info",
+      dscr = "Document Info",
+    }, {
+      text { "---", "" },
+      text { "title: " },
+      insert(1, "code"),
+      text { "", "jupyter: python3" },
+      text { "", "---" },
     }),
   },
 })
