@@ -104,4 +104,17 @@ return {
       require("custom.config.jdtls")
     end,
   },
+  {
+    "R-nvim/R.nvim",
+    ft = { "r", "rmd", "quarto" },
+    config = function()
+      local opts = {
+        external_term = "tmux split-window -hdl 80"
+      }
+      require("r").setup(opts)
+
+      vim.keymap.set("n", "<LocalLeader>qp", "<Plug>RQuartoPreview", {})
+      vim.keymap.set("n", "<LocalLeader>qr", "<Plug>RQuartoRender", {})
+    end
+  },
 }
