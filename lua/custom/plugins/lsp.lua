@@ -111,8 +111,7 @@ return {
       local opts = {
         external_term = "tmux split-window -hdl 80",
         view_df = {
-          open_app = "vdata",
-          csv_sep = ","
+          open_app = "vdata"
         }
       }
       require("r").setup(opts)
