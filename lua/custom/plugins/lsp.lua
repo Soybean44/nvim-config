@@ -11,7 +11,10 @@ return {
     },
   },
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-  "folke/neodev.nvim",
+  {
+    "folke/neodev.nvim",
+    ft = "lua",
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = "folke/neodev.nvim",
