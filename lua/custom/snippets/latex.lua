@@ -69,15 +69,26 @@ local snippets = {
     { condition = math }
   ),
   s(
-    { trig = "\"", snippetType = "autosnippet", priority = 100 },
-    fmta("\\text{<>}<>", {
-      i(1),
-      i(2)
+    { trig = "lim", snippetType = "autosnippet", priority = 100 },
+    fmta("\\lim_{<> \\to <>} <>", {
+      i(1, "x"),
+      i(2, "\\infty"),
+      i(3)
     }),
     { condition = math }
   ),
   s(
-    { trig = "text", snippetType = "autosnippet", priority = 100 },
+    { trig = "sum", snippetType = "autosnippet", priority = 100 },
+    fmta("\\Sigma_{<>=<>}^{<>}<>", {
+      i(1, "i"),
+      i(2, "1"),
+      i(3, "n"),
+      i(4)
+    }),
+    { condition = math }
+  ),
+  s(
+    { trig = "txt", snippetType = "autosnippet", priority = 110 },
     fmta("\\text{<>}<>", {
       i(1),
       i(2)
@@ -99,6 +110,25 @@ local snippets = {
       i(2, "x"),
       i(3)
     }),
+    { condition = math }
+  ),
+  s(
+    { trig = "(%d)par", regTrig = true, snippetType = "autosnippet", priority = 100 },
+    {
+      t("\\frac{\\partial^"),
+      f(function(args, snip)
+        return snip.captures[1]
+      end, {}),
+      t(" "),
+      i(1, "f"),
+      t("}{\\partial^"),
+      f(function(args, snip)
+        return snip.captures[1]
+      end, {}),
+      t(" "),
+      i(2, "x"),
+      t("} "),
+    },
     { condition = math }
   ),
   s(
@@ -133,6 +163,9 @@ local snippets = {
   ),
   s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
   s({ trig = "fall", snippetType = "autosnippet", priority = 101 }, t "\\forall", { condition = math }),
+  s({ trig = "and", snippetType = "autosnippet", priority = 101 }, t "\\land", { condition = math }),
+  s({ trig = "or", snippetType = "autosnippet", priority = 101 }, t "\\lor", { condition = math }),
+  s({ trig = "ni", snippetType = "autosnippet", priority = 101 }, t "\\ni", { condition = math }),
   s({ trig = ",,", snippetType = "autosnippet", priority = 100 }, t "\\,", { condition = math }),
   s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
   s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
@@ -145,6 +178,7 @@ local snippets = {
   s({ trig = "@b", snippetType = "autosnippet", priority = 100 }, t "\\beta ", { condition = math }),
   s({ trig = "@o", snippetType = "autosnippet", priority = 100 }, t "\\omega ", { condition = math }),
   s({ trig = "@l", snippetType = "autosnippet", priority = 100 }, t "\\lambda ", { condition = math }),
+  s({ trig = "@e", snippetType = "autosnippet", priority = 100 }, t "\\epsilon ", { condition = math }),
   s(
     { trig = "gath", snippetType = "snippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),
