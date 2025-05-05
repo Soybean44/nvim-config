@@ -11,8 +11,12 @@ return {
       "dcampos/cmp-emmet-vim",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+      "folke/lazydev.nvim",
       "hrsh7th/cmp-cmdline",
     },
+    config = function()
+      require("custom.config.nvim-cmp")
+    end
   },
   {
     "L3MON4D3/LuaSnip",

@@ -22,9 +22,9 @@ cmp.setup {
   sources = cmp.config.sources {
     { name = "luasnip" }, -- For luasnip users.
     { name = "nvim_lsp" },
-    { name = "path" },
-    { name = "emmet_vim" },
     { name = "lazydev" },
+    { name = "emmet_vim" },
+    { name = "path" },
     { name = "buffer" },
   },
   mapping = {
