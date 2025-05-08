@@ -78,12 +78,31 @@ local snippets = {
     { condition = math }
   ),
   s(
+    { trig = "dint", snippetType = "autosnippet", priority = 301 },
+    fmta("\\int_{<>}^{<>} <> \\, d<>", {
+      i(1, "-\\infty"),
+      i(2, "\\infty"),
+      i(3),
+      i(4, "x")
+    }),
+    { condition = math }
+  ),
+  s(
     { trig = "sum", snippetType = "autosnippet", priority = 100 },
-    fmta("\\Sigma_{<>=<>}^{<>}<>", {
-      i(1, "i"),
+    fmta("\\Sigma_{<>=<>}^{<>} \\, <>", {
+      i(1, "n"),
       i(2, "1"),
-      i(3, "n"),
+      i(3, "k"),
       i(4)
+    }),
+    { condition = math }
+  ),
+  s(
+    { trig = "isum", snippetType = "autosnippet", priority = 100 },
+    fmta("\\Sigma_{<>=<>}^{\\inf} \\, <>", {
+      i(1, "n"),
+      i(2, "1"),
+      i(3)
     }),
     { condition = math }
   ),
@@ -176,9 +195,14 @@ local snippets = {
   s({ trig = "@t", snippetType = "autosnippet", priority = 100 }, t "\\theta ", { condition = math }),
   s({ trig = "@g", snippetType = "autosnippet", priority = 100 }, t "\\gamma ", { condition = math }),
   s({ trig = "@b", snippetType = "autosnippet", priority = 100 }, t "\\beta ", { condition = math }),
+  s({ trig = "@a", snippetType = "autosnippet", priority = 100 }, t "\\alpha ", { condition = math }),
   s({ trig = "@o", snippetType = "autosnippet", priority = 100 }, t "\\omega ", { condition = math }),
   s({ trig = "@l", snippetType = "autosnippet", priority = 100 }, t "\\lambda ", { condition = math }),
   s({ trig = "@e", snippetType = "autosnippet", priority = 100 }, t "\\epsilon ", { condition = math }),
+  s({ trig = "@s", snippetType = "autosnippet", priority = 100 }, t "\\sigma ", { condition = math }),
+  s({ trig = "@S", snippetType = "autosnippet", priority = 100 }, t "\\Sigma ", { condition = math }),
+  s({ trig = "@m", snippetType = "autosnippet", priority = 100 }, t "\\mu ", { condition = math }),
+  s({ trig = "@p", snippetType = "autosnippet", priority = 100 }, t "\\pi ", { condition = math }),
   s(
     { trig = "gath", snippetType = "snippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),
