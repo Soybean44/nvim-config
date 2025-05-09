@@ -99,7 +99,7 @@ local snippets = {
   ),
   s(
     { trig = "isum", snippetType = "autosnippet", priority = 100 },
-    fmta("\\Sigma_{<>=<>}^{\\inf} \\, <>", {
+    fmta("\\Sigma_{<>=<>}^{\\infty} \\, <>", {
       i(1, "n"),
       i(2, "1"),
       i(3)
