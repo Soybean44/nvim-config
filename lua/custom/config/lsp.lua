@@ -84,7 +84,15 @@ lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
-lspconfig.r_language_server.setup {}
+lspconfig.r_language_server.setup {
+  settings = {
+    R = {
+      lsp = {
+        diagnostics = false
+      }
+    }
+  }
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
