@@ -19,6 +19,7 @@ local not_math = utils.with_opts(utils.not_math, treesitter) -- when using trees
 local math = utils.with_opts(utils.is_math, treesitter)
 
 local snippets = {
+  -- Non Math Snippets
   s(
     { trig = "mk", snippetType = "autosnippet", priority = 100 },
     {
@@ -45,6 +46,7 @@ local snippets = {
     },
     { condition = not_math }
   ),
+  -- Regex Snippets
   s({ trig = "}(%d)", wordTrig = false, regTrig = true, snippetType = "autosnippet", priority = 100 },
     f(function(args, snip)
       return
@@ -60,6 +62,48 @@ local snippets = {
     end, {}),
     { condition = math }
   ),
+  s(
+    { trig = "(%d)par", regTrig = true, snippetType = "autosnippet", priority = 100 },
+    {
+      t("\\frac{\\partial^"),
+      f(function(args, snip)
+        return snip.captures[1]
+      end, {}),
+      t(" "),
+      i(1, "f"),
+      t("}{\\partial^"),
+      f(function(args, snip)
+        return snip.captures[1]
+      end, {}),
+      t(" "),
+      i(2, "x"),
+      t("} "),
+    },
+    { condition = math }
+  ),
+  s({ trig = "iden(%d)", regTrig = true, snippetType = "autosnippet", priority = 100 },
+    f(function(args, snip)
+      local n = tonumber(snip.captures[1])
+      local arr = {}
+
+      for j = 1, n do
+        arr[j] = {}
+        for k = 1, n do
+          arr[j][k] = (k == j) and 1 or 0
+        end
+      end
+
+      local output = { "\\begin{pmatrix}" }
+      for _, el in ipairs(arr) do
+        local row = table.concat(el, " & ")
+        table.insert(output, row .. "\\\\")
+      end
+      table.insert(output, "\\end{pmatrix}")
+      return output
+    end, {}),
+    { condition = math }
+  ),
+  -- multi input math snippets
   s(
     { trig = "vec", snippetType = "autosnippet", priority = 100 },
     fmta("\\vec{<>}<>", {
@@ -131,55 +175,8 @@ local snippets = {
     }),
     { condition = math }
   ),
-  s(
-    { trig = "(%d)par", regTrig = true, snippetType = "autosnippet", priority = 100 },
-    {
-      t("\\frac{\\partial^"),
-      f(function(args, snip)
-        return snip.captures[1]
-      end, {}),
-      t(" "),
-      i(1, "f"),
-      t("}{\\partial^"),
-      f(function(args, snip)
-        return snip.captures[1]
-      end, {}),
-      t(" "),
-      i(2, "x"),
-      t("} "),
-    },
-    { condition = math }
-  ),
-  s(
-    { trig = "plot", snippetType = "snippet", priority = 100 },
-    fmta([[
-  \begin{tikzpicture}
-    \begin{axis}[
-    legend pos=outer north east,
-    title=<>,
-    axis lines = box,
-    xlabel = <>,
-    ylabel = <>,
-    xmin = <>, xmax = <>,
-    ymin = <>, ymax = <>,
-    variable = x,
-    trig format plots = rad,
-    ]
-    <>
-    \end{axis}
-  \end{tikzpicture}
-  ]], {
-      i(1, "Plot Title"),
-      i(2, "x"),
-      i(3, "y"),
-      i(4, "-10"),
-      i(5, "10"),
-      i(6, "-10"),
-      i(7, "10"),
-      i(8),
-    }),
-    { condition = not_math }
-  ),
+
+  -- Shorthand/No Backslash
   s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
   s({ trig = "fall", snippetType = "autosnippet", priority = 101 }, t "\\forall", { condition = math }),
   s({ trig = "exists", snippetType = "autosnippet", priority = 101 }, t "\\exists", { condition = math }),
@@ -187,11 +184,13 @@ local snippets = {
   s({ trig = "or", snippetType = "autosnippet", priority = 101 }, t "\\lor", { condition = math }),
   s({ trig = "ni", snippetType = "autosnippet", priority = 101 }, t "\\ni", { condition = math }),
   s({ trig = ",,", snippetType = "autosnippet", priority = 100 }, t "\\,", { condition = math }),
-  s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
-  s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
+  -- s({ trig = "0+", snippetType = "autosnippet", priority = 100 }, t "\\[0+\\]", { condition = math }),
+  -- s({ trig = "0-", snippetType = "autosnippet", priority = 100 }, t "\\[0-\\]", { condition = math }),
   s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "\\pm", { condition = math }),
-  s({ trig = "-=", snippetType = "autosnippet", priority = 100 }, t "\\mp", { condition = math }),
+  s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "\\mp", { condition = math }),
 
+
+  -- Greek Letters
   s({ trig = "Delta", snippetType = "autosnippet", priority = 100 }, t "\\Delta", { condition = math }),
   s({ trig = "delta", snippetType = "autosnippet", priority = 100 }, t "\\delta", { condition = math }),
   s({ trig = "theta", snippetType = "autosnippet", priority = 100 }, t "\\theta", { condition = math }),
@@ -219,6 +218,8 @@ local snippets = {
   s({ trig = "@S", snippetType = "autosnippet", priority = 100 }, t "\\Sigma", { condition = math }),
   s({ trig = "@m", snippetType = "autosnippet", priority = 100 }, t "\\mu", { condition = math }),
   s({ trig = "@p", snippetType = "autosnippet", priority = 100 }, t "\\pi", { condition = math }),
+
+  -- Environments
   s(
     { trig = "gath", snippetType = "snippet", priority = 100 },
     fmta("\\begin{gather}\n<>\n\\end{gather}<>", { i(1), i(2) }),
@@ -229,30 +230,42 @@ local snippets = {
     fmta("\\begin{aligned}\n<>\n\\end{aligned}<>", { i(1), i(2) }),
     { condition = math }
   ),
-  s({ trig = "iden(%d)", regTrig = true, snippetType = "autosnippet", priority = 100 },
-    f(function(args, snip)
-      local n = tonumber(snip.captures[1])
-      local arr = {}
-
-      for j = 1, n do
-        arr[j] = {}
-        for k = 1, n do
-          arr[j][k] = (k == j) and 1 or 0
-        end
-      end
-
-      local output = { "\\begin{pmatrix}" }
-      for _, el in ipairs(arr) do
-        local row = table.concat(el, " & ")
-        table.insert(output, row .. "\\\\")
-      end
-      table.insert(output, "\\end{pmatrix}")
-      return output
-    end, {}),
-    { condition = math }
-  )
 }
 
 ls.add_snippets("tex", snippets)
 ls.add_snippets("markdown", snippets)
 ls.add_snippets("quarto", snippets)
+
+-- Tex specific snippets
+ls.add_snippets("tex", {
+  s(
+    { trig = "plot", snippetType = "snippet", priority = 100 },
+    fmta([[
+    \begin{tikzpicture}
+      \begin{axis}[
+      legend pos=outer north east,
+      title=<>,
+      axis lines = box,
+      xlabel = <>,
+      ylabel = <>,
+      xmin = <>, xmax = <>,
+      ymin = <>, ymax = <>,
+      variable = x,
+      trig format plots = rad,
+      ]
+      <>
+      \end{axis}
+    \end{tikzpicture}
+    ]], {
+      i(1, "Plot Title"),
+      i(2, "x"),
+      i(3, "y"),
+      i(4, "-10"),
+      i(5, "10"),
+      i(6, "-10"),
+      i(7, "10"),
+      i(8),
+    }),
+    { condition = not_math }
+  ),
+})

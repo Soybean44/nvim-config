@@ -86,7 +86,7 @@ lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
 lspconfig.r_language_server.setup {
   settings = {
-    R = {
+    r = {
       lsp = {
         diagnostics = false
       }
