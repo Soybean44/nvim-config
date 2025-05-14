@@ -180,6 +180,7 @@ local snippets = {
   s({ trig = "\\,,", snippetType = "autosnippet", priority = 101 }, t ",\\,", { condition = math }),
   s({ trig = "fall", snippetType = "autosnippet", priority = 101 }, t "\\forall", { condition = math }),
   s({ trig = "exists", snippetType = "autosnippet", priority = 101 }, t "\\exists", { condition = math }),
+  s({ trig = "det", snippetType = "autosnippet", priority = 101 }, t "\\det", { condition = math }),
   s({ trig = "and", snippetType = "autosnippet", priority = 101 }, t "\\land", { condition = math }),
   s({ trig = "or", snippetType = "autosnippet", priority = 101 }, t "\\lor", { condition = math }),
   s({ trig = "ni", snippetType = "autosnippet", priority = 101 }, t "\\ni", { condition = math }),
