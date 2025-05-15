@@ -8,9 +8,9 @@ vim.opt.completeopt = { "menu", "noinsert", "noselect" }
 vim.opt.shortmess:append "c"
 
 cmp.setup {
-  completion = {
-    autocomplete = true
-  },
+  -- completion = {
+  --   autocomplete = false
+  -- },
   snippet = {
     expand = function(args)
       ls.lsp_expand(args.body)
