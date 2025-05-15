@@ -9,7 +9,7 @@ vim.opt.shortmess:append "c"
 
 cmp.setup {
   completion = {
-    autocomplete = false
+    autocomplete = true
   },
   snippet = {
     expand = function(args)
