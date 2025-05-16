@@ -50,6 +50,23 @@ return {
     end,
   },
   {
+    'TobinPalmer/pastify.nvim',
+    cmd = { 'Pastify', 'PastifyAfter' },
+    config = function()
+      require('pastify').setup {
+        opts = {
+          absolute_path = false,   -- use absolute or relative path to the working directory
+          apikey = '',             -- Api key, required for online saving
+          local_path = '/assets/', -- The path to put local files in, ex ~/Projects/<name>/assets/images/<imgname>.png
+          save = 'local',          -- Either 'local' or 'online' or 'local_file'
+          filename = function() return vim.fn.expand("%:t:r") .. '_' .. os.date('%Y-%m-%d_%H-%M-%S') end,
+          default_ft = 'markdown', -- Default filetype to use
+        }
+      }
+      vim.api.nvim_set_keymap('n', '<leader>P', ':Pastify<CR>', { noremap = true, silent = true })
+    end
+  },
+  {
     "ggandor/leap.nvim",
     dependencies = "tpope/vim-repeat",
     config = function()
