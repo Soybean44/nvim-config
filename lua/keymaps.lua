@@ -15,6 +15,8 @@ vim.g.maplocalleader = ","
 -- Remap j and k to gj and gk
 vim.keymap.set("n", "j", "gj", opts)
 vim.keymap.set("n", "k", "gk", opts)
+vim.keymap.set("n", "gj", "j", opts)
+vim.keymap.set("n", "gk", "k", opts)
 
 -- Splits
 vim.keymap.set("n", "<leader>v", "<Cmd>vsplit<CR>", opts)
