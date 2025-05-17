@@ -1,30 +1,4 @@
 return {
-  -- {
-  --   'vimwiki/vimwiki',
-  --   lazy = false,
-  --   init = function()
-  --     vim.g.vimwiki_folding = 'custom'
-  --     vim.g.markdown_folding = 1
-  --     vim.wo.foldmethod = "expr"
-  --     vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-  --     vim.api.nvim_create_autocmd("FileType", {
-  --       pattern = "vimwiki",
-  --       callback = function()
-  --         vim.opt_local.filetype = "markdown"
-  --       end,
-  --     })
-  --     vim.g.vimwiki_list = {
-  --       {
-  --         path = '~/syncthing/notes',
-  --         syntax = 'markdown',
-  --         ext = 'md',
-  --         index = 'index',
-  --         default = 1,
-  --       }
-  --     }
-  --     vim.keymap.set("n", "<leader>gl", ":VimwikiNextLink<CR>:VimwikiFollowLink<CR>")
-  --   end
-  -- },
   {
     "folke/snacks.nvim",
     ---@type snacks.Config
