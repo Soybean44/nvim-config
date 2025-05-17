@@ -101,7 +101,7 @@ return {
     config = function()
       vim.g.typst_syntax_highlight = 0
       vim.g.typst_pdf_viewer = 'zathura'
-      vim.keymap.set('n', "<localleader>ll", ":TypstWatch", { noremap = true, silent = true })
+      vim.keymap.set('n', "<localleader>ll", ":TypstWatch<CR>", { noremap = true, silent = true })
     end
   },
   {
