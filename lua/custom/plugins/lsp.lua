@@ -96,6 +96,15 @@ return {
     ft = { "tex", "markdown" },
   },
   {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    config = function()
+      vim.g.typst_syntax_highlight = 0
+      vim.g.typst_pdf_viewer = 'zathura'
+      vim.keymap.set('n', "<localleader>ll", ":TypstWatch", { noremap = true, silent = true })
+    end
+  },
+  {
     "mfussenegger/nvim-jdtls",
     ft = "java",
     dependencies = "neovim/nvim-lspconfig",
