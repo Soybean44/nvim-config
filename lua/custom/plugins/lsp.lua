@@ -101,8 +101,15 @@ return {
     config = function()
       vim.g.typst_syntax_highlight = 0
       vim.g.typst_pdf_viewer = 'zathura'
-      vim.keymap.set('n', "<localleader>ll", ":TypstWatch<CR>", { noremap = true, silent = true })
+      vim.keymap.set('n', "<localleader>tt", ":TypstWatch<CR>", { noremap = true, silent = true })
     end
+  },
+  {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    version = '1.*',
+    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+    vim.keymap.set('n', "<localleader>tp", ":TypstPreviewToggle<CR>", { noremap = true, silent = true })
   },
   {
     "mfussenegger/nvim-jdtls",

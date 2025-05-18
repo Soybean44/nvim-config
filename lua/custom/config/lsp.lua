@@ -84,7 +84,13 @@ lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
-lspconfig.tinymist.setup {}
+lspconfig.tinymist.setup {
+  settings = {
+    tinymist = {
+      formatterMode = "typstyle",
+    }
+  }
+}
 lspconfig.r_language_server.setup {
   settings = {
     r = {
