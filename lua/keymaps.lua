@@ -57,6 +57,7 @@ vim.keymap.set("n", "<leader>x", ":w<CR>:source %<CR>", opts)
 -----------------
 
 vim.keymap.set("i", "<C-c>", "<Esc>", opts)
+vim.keymap.set("i", "<C-v>", "<C-o>P", opts)
 
 -----------------
 -- Visual mode --

@@ -12,12 +12,12 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lu
   loadfile(ft_path)()
 end
 
-vim.keymap.set({ "i", "s" }, "<C-n>", function()
+vim.keymap.set({ "i", "s" }, "<C-f>", function()
   if ls.jumpable(1) then
     ls.jump(1)
   end
 end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-p>", function()
+vim.keymap.set({ "i", "s" }, "<C-b>", function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
