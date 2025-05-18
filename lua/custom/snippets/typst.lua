@@ -89,6 +89,8 @@ ls.add_snippets("typst", {
     },
     { condition = not_math }
   ),
+  s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
+    { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math })
 })
 
 vim.keymap.set('i', '<M-l>', function()
