@@ -76,21 +76,23 @@ ls.add_snippets("typst", {
     },
     { condition = not_math }
   ),
-  s(
-    { trig = "dm", snippetType = "autosnippet", priority = 1 },
-    {
-      t({ "$", "" }),
-      f(function(args, snip)
-        return
-            snip.env.TM_SELECTED_TEXT[1] or {}
-      end, {}),
-      i(1),
-      t({ "", "$" }),
-    },
-    { condition = not_math }
-  ),
+
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
-    { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math })
+    { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
+
+  s({ trig = "@D", snippetType = "autosnippet", priority = 100 }, t "Delta", { condition = math }),
+  s({ trig = "@d", snippetType = "autosnippet", priority = 100 }, t "delta", { condition = math }),
+  s({ trig = "@t", snippetType = "autosnippet", priority = 100 }, t "theta", { condition = math }),
+  s({ trig = "@g", snippetType = "autosnippet", priority = 100 }, t "gamma", { condition = math }),
+  s({ trig = "@b", snippetType = "autosnippet", priority = 100 }, t "beta", { condition = math }),
+  s({ trig = "@a", snippetType = "autosnippet", priority = 100 }, t "alpha", { condition = math }),
+  s({ trig = "@o", snippetType = "autosnippet", priority = 100 }, t "omega", { condition = math }),
+  s({ trig = "@l", snippetType = "autosnippet", priority = 100 }, t "lambda", { condition = math }),
+  s({ trig = "@e", snippetType = "autosnippet", priority = 100 }, t "epsilon", { condition = math }),
+  s({ trig = "@s", snippetType = "autosnippet", priority = 100 }, t "sigma", { condition = math }),
+  s({ trig = "@S", snippetType = "autosnippet", priority = 100 }, t "Sigma", { condition = math }),
+  s({ trig = "@m", snippetType = "autosnippet", priority = 100 }, t "mu", { condition = math }),
+  s({ trig = "@p", snippetType = "autosnippet", priority = 100 }, t "pi", { condition = math }),
 })
 
 vim.keymap.set('i', '<M-l>', function()
