@@ -76,6 +76,35 @@ ls.add_snippets("typst", {
     },
     { condition = not_math }
   ),
+  s(
+    { trig = "dm", snippetType = "autosnippet", priority = 1 },
+    {
+      t({ "$", "" }),
+      f(function(args, snip)
+        return
+            snip.env.TM_SELECTED_TEXT[1] or {}
+      end, {}),
+      i(1),
+      t({ "", "$" }),
+    },
+    { condition = not_math }
+  ),
+  s({ trig = "([a-zA-Z])vec", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+          "arrow(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "([a-zA-Z])bar", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+          "overline(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "txt", snippetType = "autosnippet", priority = 1 },
+    fmta('op("<>")', { i(1) }), { condition = math }),
 
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
