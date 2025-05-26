@@ -37,7 +37,11 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
       preview = { icon_provider = "devicons" },
-      latex = { enable = false }
+      latex = { enable = false },
+      typst = {
+        enable = true,
+        escapes = { enable = false },
+      }
     }
   },
 }
