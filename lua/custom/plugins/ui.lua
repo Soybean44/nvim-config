@@ -40,7 +40,7 @@ return {
       latex = { enable = false },
       typst = {
         enable = true,
-        escapes = { enable = false },
+        code_blocks = { enable = false },
       }
     }
   },
