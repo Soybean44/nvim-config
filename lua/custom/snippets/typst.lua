@@ -103,6 +103,20 @@ ls.add_snippets("typst", {
     end, {}),
     { condition = math }
   ),
+  s({ trig = "([a-zA-Z])hat", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+          "hat(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "([a-zA-Z])(%d)", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+           snip.captures[1] .. "_(" .. snip.captures[2] .. ")"
+    end, {}),
+    { condition = math }
+  ),
   s({ trig = "txt", snippetType = "autosnippet", priority = 1 },
     fmta('op("<>")', { i(1) }), { condition = math }),
 
