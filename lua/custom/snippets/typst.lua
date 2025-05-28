@@ -127,6 +127,9 @@ return {
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
 
+  s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus", { condition = math }),
+  s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "minus.plus", { condition = math }),
+
   s({ trig = "@D", snippetType = "autosnippet", priority = 100 }, t "Delta", { condition = math }),
   s({ trig = "@d", snippetType = "autosnippet", priority = 100 }, t "delta", { condition = math }),
   s({ trig = "@t", snippetType = "autosnippet", priority = 100 }, t "theta", { condition = math }),
