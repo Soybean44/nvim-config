@@ -19,4 +19,4 @@ vim.api.nvim_create_user_command("ExportPicker", function ()
   require("luasnip.loaders").edit_snippet_files()
 end, {})
 
-require("luasnip.loaders.from_lua").lazy_load({lazy_paths = {"/home/soybean44/.config/nvim/lua/custom/snippets"}})
+require("luasnip.loaders.from_lua").lazy_load({lazy_paths = {"~/.config/nvim/lua/custom/snippets"}})
