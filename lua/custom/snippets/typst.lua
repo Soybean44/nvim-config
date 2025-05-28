@@ -62,7 +62,11 @@ local math = function()
   return ts_has_root("math")
 end
 
-ls.add_snippets("typst", {
+vim.keymap.set('i', '<M-l>', function()
+  print(math())
+end, { noremap = true })
+
+return {
   s(
     { trig = "mk", snippetType = "autosnippet", priority = 1 },
     {
@@ -113,7 +117,7 @@ ls.add_snippets("typst", {
   s({ trig = "([a-zA-Z])(%d)", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
-           snip.captures[1] .. "_(" .. snip.captures[2] .. ")"
+          snip.captures[1] .. "_(" .. snip.captures[2] .. ")"
     end, {}),
     { condition = math }
   ),
@@ -136,8 +140,4 @@ ls.add_snippets("typst", {
   s({ trig = "@S", snippetType = "autosnippet", priority = 100 }, t "Sigma", { condition = math }),
   s({ trig = "@m", snippetType = "autosnippet", priority = 100 }, t "mu", { condition = math }),
   s({ trig = "@p", snippetType = "autosnippet", priority = 100 }, t "pi", { condition = math }),
-})
-
-vim.keymap.set('i', '<M-l>', function()
-  print(math())
-end, { noremap = true })
+}

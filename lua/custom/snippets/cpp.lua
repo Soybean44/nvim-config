@@ -1,23 +1,21 @@
 local ls = require "luasnip"
 -- some shorthands...
-local snip = ls.snippet
-local text = ls.text_node
+local s = ls.snippet
+local t = ls.text_node
 
-ls.add_snippets(nil, {
-  cpp = {
-    snip({
-      trig = "hello",
-      namr = "hello world",
-      dscr = "hello world program",
-    }, {
-      text {
-        "#include <iostream>",
-        "",
-        "int main (void) {",
-        '  std::cout << "Hello World!\\n";',
-        "  return 0;",
-        "}",
-      },
-    }),
-  },
-})
+return {
+  s({
+    trig = "hello",
+    namr = "hello world",
+    dscr = "hello world program",
+  }, {
+    t {
+      "#include <iostream>",
+      "",
+      "int main (void) {",
+      '  std::cout << "Hello World!\\n";',
+      "  return 0;",
+      "}",
+    },
+  }),
+}

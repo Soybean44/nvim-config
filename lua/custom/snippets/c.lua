@@ -1,16 +1,16 @@
 local ls = require "luasnip"
 -- some shorthands...
-local snip = ls.snippet
-local text = ls.text_node
+local s = ls.snippet
+local t = ls.text_node
 
-ls.add_snippets(nil, {
-  c = {
-    snip({
+
+return {
+    s({
       trig = "hello",
       namr = "hello world",
       dscr = "hello world program",
     }, {
-      text {
+      t {
         "#include <stdio.h>",
         "",
         "int main (void) {",
@@ -19,5 +19,4 @@ ls.add_snippets(nil, {
         "}",
       },
     }),
-  },
-})
+  }

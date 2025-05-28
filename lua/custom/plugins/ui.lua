@@ -13,7 +13,7 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.2",
     lazy = false,
-    dependencies = "nvim-lua/plenary.nvim",
+    dependencies = {"nvim-lua/plenary.nvim","nvim-telescope/telescope-ui-select.nvim"},
     opts = {
       pickers = {
         find_files = {
@@ -29,6 +29,7 @@ return {
       vim.keymap.set("n", "<leader>ff", telescope.find_files)
       vim.keymap.set("n", "<leader>fk", telescope.keymaps)
       vim.keymap.set("n", "<leader>fg", telescope.grep_string)
+      require("telescope").load_extension("ui-select")
     end,
   },
   {
