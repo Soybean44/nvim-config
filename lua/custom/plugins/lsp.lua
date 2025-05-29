@@ -100,6 +100,7 @@ return {
     config = function()
       local opts = {
         external_term = "tmux split-window -hdl 80",
+        pipe_version = "magrittr",
         view_df = {
           open_app = "vdata"
         }
