@@ -13,7 +13,7 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.2",
     lazy = false,
-    dependencies = {"nvim-lua/plenary.nvim","nvim-telescope/telescope-ui-select.nvim"},
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
     opts = {
       pickers = {
         find_files = {
@@ -41,7 +41,22 @@ return {
       latex = { enable = false },
       typst = {
         enable = true,
+        math_blocks = { enable = false },
+        math_spans = { enable = false },
         code_blocks = { enable = false },
+        code_spans = { enable = false },
+        escapes = { enable = false },
+        headings = { enable = true },
+        labels = { enable = false },
+        list_items = { enable = false },
+        raw_spans = { enable = false },
+        raw_blocks = { enable = false },
+        reference_links = { enable = false },
+        subscripts = { enable = false },
+        superscript = { enable = false },
+        symbols = { enable = false },
+        terms = { enable = false },
+        url_links = { enable = true },
       }
     }
   },
