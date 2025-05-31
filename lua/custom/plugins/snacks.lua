@@ -2,6 +2,9 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
+    lazygit = {
+      configure = true
+    },
     image = {
       env = {
         SNACKS_GHOSTTY = true
@@ -74,5 +77,9 @@ return {
           \end{document}]],
       },
     },
-  }
+  },
+  config = function()
+    local snacks = require('snacks')
+    vim.keymap.set('n', '<leader>gs', snacks.lazygit.open, {silent = true, noremap = true})
+  end
 }
