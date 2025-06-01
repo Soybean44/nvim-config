@@ -9,7 +9,7 @@ local s = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
 local f = ls.function_node
-local fmta = require("luasnip.extras.fmt").fmta
+local fmt = require("luasnip.extras.fmt").fmt
 local utils = require "luasnip-latex-snippets.util.utils"
 
 -- Checks if current cursor location has node_name as a rott
@@ -93,6 +93,7 @@ return {
     },
     { condition = not_math }
   ),
+  -- Regex / Functions
   s({ trig = "([a-zA-Z])vec", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
@@ -100,6 +101,35 @@ return {
     end, {}),
     { condition = math }
   ),
+  s({ trig = "(%d)ddx", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    {
+      f(function(args, snip)
+        return '(d^(' .. snip.captures[1] .. ') '
+      end, {}),
+      i(1),
+      t(')/(d '),
+      i(2, "x"),
+      f(function(args, snip)
+        return '^(' .. snip.captures[1] .. ')) '
+      end, {}),
+    },
+    { condition = math }
+  ),
+  s({ trig = "(%d)par", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    {
+      f(function(args, snip)
+        return '(partial^(' .. snip.captures[1] .. ') '
+      end, {}),
+      i(1),
+      t(')/(partial '),
+      i(2, "x"),
+      f(function(args, snip)
+        return '^(' .. snip.captures[1] .. ')) '
+      end, {}),
+    },
+    { condition = math }
+  ),
+
   s({ trig = "([a-zA-Z])bar", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
@@ -121,15 +151,35 @@ return {
     end, {}),
     { condition = math }
   ),
-  s({ trig = "txt", snippetType = "autosnippet", priority = 1 },
-    fmta('op("<>")', { i(1) }), { condition = math }),
 
+  -- Math Expressions
+  s({ trig = "txt", snippetType = "autosnippet", priority = 1 },
+    fmt('op("{}")', { i(1) }), { condition = math }),
+  s({ trig = "lim", snippetType = "autosnippet", priority = 1 },
+    fmt('lim_({} -> {})', { i(1, "x"), i(2, "oo") }), { condition = math }),
+  s({ trig = "dint", snippetType = "autosnippet", priority = 1 },
+    fmt('integral_({})^({}) {} thin d {}', { i(1, "a"), i(2, "b"), i(3, "f(x)"), i(4, "x") }), { condition = math }),
+  s({ trig = "ddx", snippetType = "autosnippet", priority = 1 },
+    fmt('(d {})/(d {})', { i(1), i(2, "x") }), { condition = math }),
+  s({ trig = "par", snippetType = "autosnippet", priority = 1 },
+    fmt('(partial {})/(partial {})', { i(1), i(2, "x") }), { condition = math }),
+
+  s({ trig = "genmat", snippetType = "autosnippet", priority = 1 },
+    fmt([[
+#let n = {}
+#let m = {}
+#let f(i,j) = {}
+mat(..#range(0,n).map(i => range(0,m).map(j => f(i,j))))
+    ]], { i(1, "2"), i(2, "2"), i(3, "$#{int(i==j)}$") }), { condition = math }),
+
+  -- Shorthand
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
-
   s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus", { condition = math }),
   s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "minus.plus", { condition = math }),
+  s({ trig = "int", snippetType = "autosnippet", priority = 100 }, t "integral", { condition = math }),
 
+  -- Greek Shorthand
   s({ trig = "@D", snippetType = "autosnippet", priority = 100 }, t "Delta", { condition = math }),
   s({ trig = "@d", snippetType = "autosnippet", priority = 100 }, t "delta", { condition = math }),
   s({ trig = "@t", snippetType = "autosnippet", priority = 100 }, t "theta", { condition = math }),
