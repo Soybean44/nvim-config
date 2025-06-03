@@ -6,9 +6,11 @@ ls.config.setup {
 }
 
 local s = ls.snippet
+local sn = ls.snippet_node
 local i = ls.insert_node
 local t = ls.text_node
 local f = ls.function_node
+local d = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmt
 local utils = require "luasnip-latex-snippets.util.utils"
 
@@ -145,13 +147,53 @@ return {
     { condition = math }
   ),
   s({ trig = "([a-zA-Z])(%d)", regTrig = true, snippetType = "autosnippet", priority = 101 },
-    f(function(args, snip)
+    { f(function(args, snip)
       return
           snip.captures[1] .. "_(" .. snip.captures[2] .. ")"
-    end, {}),
+    end, {}) },
     { condition = math }
   ),
-
+  s({ trig = "(%d)table", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    {
+      t({
+        "#figure(",
+        "\ttable(",
+        "\t\tcolumns: ("
+      }),
+      f(function(args, snip)
+        local cols = ""
+        for n = 1, snip.captures[1] - 1 do
+          cols = cols .. "auto, "
+        end
+        return cols .. "auto"
+      end, {}),
+      t({
+        "),",
+        "\t\ttable.header("
+      }),
+      d(1, function(args, snip)
+        local fmt_str = ""
+        local inputs = {}
+        for n = 1, snip.captures[1] do
+          fmt_str = fmt_str .. "[*{}*], "
+          table.insert(inputs, n, i(n))
+        end
+        return sn(nil, fmt(fmt_str:sub(1, -3), inputs))
+      end, {}),
+      t({
+        "),",
+        "\t\t"
+      }),
+      i(2),
+      t({
+        "",
+        "\t), caption : ["
+      }),
+      i(3, "Table Caption"),
+      t({"])", ""})
+    },
+    { condition = not_math }
+  ),
   -- Math Expressions
   s({ trig = "txt", snippetType = "autosnippet", priority = 1 },
     fmt('op("{}")', { i(1) }), { condition = math }),
@@ -164,19 +206,13 @@ return {
   s({ trig = "par", snippetType = "autosnippet", priority = 1 },
     fmt('(partial {})/(partial {})', { i(1), i(2, "x") }), { condition = math }),
 
-  s({ trig = "genmat", snippetType = "autosnippet", priority = 1 },
-    fmt([[
-#let n = {}
-#let m = {}
-#let f(i,j) = {}
-mat(..#range(0,n).map(i => range(0,m).map(j => f(i,j))))
-    ]], { i(1, "2"), i(2, "2"), i(3, "$#{int(i==j)}$") }), { condition = math }),
-
   -- Shorthand
+  s({ trig = "genmatdef", snippetType = "autosnippet", priority = 1 },
+    t("#let genmat(n,m,f) = $mat(..#range(0,n).map(i => range(0,m).map(j => f(i,j))))$"), { condition = not_math }),
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
-  s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus", { condition = math }),
-  s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "minus.plus", { condition = math }),
+  s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus ", { condition = math }),
+  s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "minus.plus ", { condition = math }),
   s({ trig = "int", snippetType = "autosnippet", priority = 100 }, t "integral", { condition = math }),
 
   -- Greek Shorthand
