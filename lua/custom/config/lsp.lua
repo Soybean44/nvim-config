@@ -1,6 +1,13 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Setup language servers.
 local lspconfig = require("lspconfig")
+
+local function enable_inlay_hints(client, bufnr)
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true)
+  end
+end
+
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
   on_init = function(client)
@@ -48,6 +55,7 @@ lspconfig.lua_ls.setup {
   },
 }
 lspconfig.pylsp.setup {
+  on_attach=enable_inlay_hints,
   settings = {
     pylsp = {
       plugins = {
@@ -79,7 +87,9 @@ lspconfig.eslint.setup {
     })
   end,
 }
-lspconfig.zls.setup {}
+lspconfig.zls.setup {
+  on_attach=enable_inlay_hints,
+}
 lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
