@@ -207,8 +207,6 @@ return {
     fmt('(partial {})/(partial {})', { i(1), i(2, "x") }), { condition = math }),
 
   -- Shorthand
-  s({ trig = "genmatdef", snippetType = "autosnippet", priority = 1 },
-    t("#let genmat(n,m,f) = $mat(..#range(0,n).map(i => range(0,m).map(j => f(i,j))))$"), { condition = not_math }),
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
   s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus ", { condition = math }),
