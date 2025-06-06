@@ -190,7 +190,7 @@ return {
         "\t), caption : ["
       }),
       i(3, "Table Caption"),
-      t({"])", ""})
+      t({ "])", "" })
     },
     { condition = not_math }
   ),
@@ -205,6 +205,11 @@ return {
     fmt('(d {})/(d {})', { i(1), i(2, "x") }), { condition = math }),
   s({ trig = "par", snippetType = "autosnippet", priority = 1 },
     fmt('(partial {})/(partial {})', { i(1), i(2, "x") }), { condition = math }),
+
+  s({ trig = "hyp", priority = 1 },
+    fmt([[$
+  H_(0): {} op(" vs ") H_(a): {}
+$]], { i(1, 'op("null hypothesis")'), i(2, 'op("alternative hypothesis")') }), { condition = not_math }),
 
   -- Shorthand
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
