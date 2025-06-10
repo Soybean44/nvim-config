@@ -4,7 +4,7 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
-local snippets =  {
+local snippets = {
   s({
     trig = "pycode",
     namr = "Python codeblock",
@@ -13,7 +13,18 @@ local snippets =  {
     t { "```{python}", "" },
     i(1, "code"),
     t { "", "```" },
-  }),   -- For r version of this snippet just use <M-r>
+  }), -- For r version of this snippet just use <M-r>
+  s({
+    trig = "pbreak",
+    namr = "Typst Pagebreak",
+    dscr = "Typst Pagebreak",
+  }, {
+    t({
+      "```{=typst}",
+      "#pagebreak()",
+      "```"
+    })
+  }),
   s({
     trig = "info",
     namr = "Info",
