@@ -1,1 +1,3 @@
-require("lazy").setup{{import = "custom/plugins" }}
+require("lazy").setup({
+  { import = "custom/plugins" }
+})
