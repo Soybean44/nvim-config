@@ -26,6 +26,11 @@ return {
         }
       }
 
+      dap.adapters.codelldb = {
+        type = "executable",
+        command = "codelldb",
+      }
+
       dap.configurations.c = {
         {
           name = "Launch",
@@ -57,7 +62,7 @@ return {
 
       vim.keymap.set("n", "<leader>dq", ":DapTerminate<CR>")
       vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>")
-      -- vim.keymap.set("n", "<leader>dr", ":DapContinue<CR>")
+      vim.keymap.set("n", "<leader>dr", ":DapContinue<CR>")
 
       vim.keymap.set("n", "<F1>", ":DapStepInto<CR>")
       vim.keymap.set("n", "<F2>", ":DapStepOver<CR>")
