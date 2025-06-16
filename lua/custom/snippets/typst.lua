@@ -216,7 +216,6 @@ $]], { i(1, 'op("null hypothesis")'), i(2, 'op("alternative hypothesis")') }), {
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
   s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus ", { condition = math }),
   s({ trig = "-+", snippetType = "autosnippet", priority = 100 }, t "minus.plus ", { condition = math }),
-  s({ trig = "int", snippetType = "autosnippet", priority = 100 }, t "integral", { condition = math }),
 
   -- Greek Shorthand
   s({ trig = "@D", snippetType = "autosnippet", priority = 100 }, t "Delta", { condition = math }),
