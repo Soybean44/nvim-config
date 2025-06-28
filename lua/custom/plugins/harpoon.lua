@@ -32,7 +32,8 @@ return {
     end,
   },
   {
-    "Soybean44/compilation-mode.nvim",
+    "soybean44/compilation-mode.nvim",
+    branch = "main",
     dependencies = { "nvim-lua/plenary.nvim", "ThePrimeagen/harpoon" },
     -- dir = "~/code/lua/compilation-mode.nvim", -- for dev
     config = function()
