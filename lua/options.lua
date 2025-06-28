@@ -14,7 +14,7 @@ vim.api.nvim_create_augroup("AsmGroup", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   group = "AsmGroup",
   pattern = { "*.asm", "*.s", "*.S" },
-  command = "set filetype=nasm",
+  command = "set filetype=asm",
 })
 
 -- Tab
