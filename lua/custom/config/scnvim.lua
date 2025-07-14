@@ -4,16 +4,16 @@ local map_expr = scnvim.map_expr
 
 scnvim.setup({
   keymaps = {
-    ['<M-s>'] = map('editor.send_line', {'i', 'n'}),
+    ['<M-s>'] = map('editor.send_line', { 'i', 'n' }),
     ['<C-s>'] = {
-      map('editor.send_block', {'i', 'n'}),
+      map('editor.send_block', { 'i', 'n' }),
       map('editor.send_selection', 'x'),
     },
     ['<CR>'] = map('postwin.toggle'),
     ['<M-CR>'] = map('postwin.toggle', 'i'),
-    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
-    ['<C-k>'] = map('signature.show', {'n', 'i'}),
-    ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
+    ['<M-L>'] = map('postwin.clear', { 'n', 'i' }),
+    ['<C-k>'] = map('signature.show', { 'n', 'i' }),
+    ['<F12>'] = map('sclang.hard_stop', { 'n', 'x', 'i' }),
     ['<leader>st'] = map('sclang.start'),
     ['<leader>sk'] = map('sclang.recompile'),
     ['<F1>'] = map_expr('s.boot'),
