@@ -11,7 +11,7 @@ return {
   "nvim-lua/plenary.nvim",
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
+    branch = "master",
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
