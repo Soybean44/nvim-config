@@ -40,6 +40,7 @@ return {
     lazy = false,
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
+      experimental = { check_rtp = false },
       preview = { icon_provider = "devicons" },
       latex = { enable = false },
       typst = {

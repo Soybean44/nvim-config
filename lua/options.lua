@@ -9,12 +9,18 @@ vim.filetype.add {
   },
 }
 
-vim.api.nvim_create_augroup("AsmGroup", { clear = true })
+vim.api.nvim_create_augroup("FileGroup", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  group = "AsmGroup",
+  group = "FileGroup",
   pattern = { "*.asm", "*.s", "*.S" },
   command = "set filetype=asm",
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  group = "FileGroup",
+  pattern = { "*.njk", "*.twig" },
+  command = "set filetype=jinja",
 })
 
 -- Tab
