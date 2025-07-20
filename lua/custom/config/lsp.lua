@@ -94,6 +94,7 @@ lspconfig.clangd.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
+lspconfig.emmet_langauge_server.setup {}
 lspconfig.tinymist.setup {
   settings = {
     tinymist = {
