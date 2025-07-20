@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   group = "FileGroup",
   pattern = { "*.njk", "*.twig" },
-  command = "set filetype=jinja",
+  command = "set filetype=htmldjango",
 })
 
 -- Tab
