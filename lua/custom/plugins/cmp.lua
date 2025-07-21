@@ -13,6 +13,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "folke/lazydev.nvim",
       "hrsh7th/cmp-cmdline",
+      "tailwind-tools"
     },
     config = function()
       require("custom.config.nvim-cmp")
