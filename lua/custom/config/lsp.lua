@@ -95,6 +95,7 @@ lspconfig.ts_ls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.ocamllsp.setup {}
 vim.lsp.enable("emmet_language_server")
+vim.lsp.enable("tailwindcss")
 lspconfig.tinymist.setup {
   settings = {
     tinymist = {
