@@ -1,6 +1,12 @@
+vim.g.export_typst = true
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.typ",
-  command = ":LspTinymistExportPdf",
+  callback = function ()
+    if vim.g.export_typst then
+      vim.cmd[[LspTinymistExportPdf]]
+    end
+  end,
 })
 
 local export_types = { "pdf", "png", "svg", "html" }
@@ -75,5 +81,9 @@ local function export_picker()
 end
 
 vim.api.nvim_create_user_command("ExportPicker", export_picker, {})
+vim.api.nvim_create_user_command("AutoPdfToggle", function ()
+  vim.g.export_typst = not vim.g.export_typst
+  print("Set pdf export to", vim.g.export_typst)
+end, {})
 
 vim.keymap.set('n', '<localleader>tc', export_picker, { noremap = true, silent = true })
