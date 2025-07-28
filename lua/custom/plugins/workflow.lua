@@ -72,5 +72,12 @@ return {
       -- suggested keymap
       { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
-  }
+  },
+  {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    version = '1.*',
+    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+    vim.keymap.set('n', "<localleader>tp", ":TypstPreviewToggle<CR>", { noremap = true, silent = true })
+  },
 }

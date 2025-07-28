@@ -80,13 +80,6 @@ return {
     end
   },
   {
-    'chomosuke/typst-preview.nvim',
-    ft = 'typst',
-    version = '1.*',
-    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
-    vim.keymap.set('n', "<localleader>tp", ":TypstPreviewToggle<CR>", { noremap = true, silent = true })
-  },
-  {
     "mfussenegger/nvim-jdtls",
     ft = "java",
     dependencies = "neovim/nvim-lspconfig",
