@@ -15,12 +15,15 @@ vim.o.autoindent = true
 vim.o.swapfile = false
 vim.o.clipboard = 'unnamedplus'
 vim.o.winborder = 'rounded'
+vim.o.completeopt = "fuzzy,menu"
+
 
 vim.g.mapleader = ' '
 
 -- Keybinds
 
 vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>')
+vim.keymap.set('n', '<leader>r', ':make<CR>')
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>')
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>')
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>')
@@ -36,7 +39,7 @@ vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
 -- Language Servers
-vim.lsp.enable({ 'lua_ls', 'tinymist' })
+vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd' })
 
 -- PLUGINS --
 
