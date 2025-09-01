@@ -1,30 +1,18 @@
 # Neovim Config
 
-This is my neovim config that im making from scratch using lazy.nvim as my package manager
+This is my dead simple neovim config. Minimal plugins, minimal configuration, minimal effort.
 
-## Todo list
-In order from most priority to least priority
+## Philosophy
 
-None so far!
+The philosophy behind this config is to better understand base neovim without needing any bloat surrounding it. All of this started after I found out that omni-complete works out of the box in python when doing some embedded development, no configuration required. This combined with the fact that omni-complete now works with lsp in neovim 0.11 means that this config is insanely ergonomic. The best part is some of my most effective workflows are still here and work amazingly. 
 
-## New Feature Conditions
-As to keep the config clean and concise, I will not add new languages unless its absolutely necessary.
-If a new language is in my todo list it means I am testing it out, it doesn't mean that it will go into my config.
+## Plugins
 
-## Features Implemented
-Finished items in the todo list will be added to this list
+I do use vim 0.12's native plugin manager to install the bare minimum of plugins, this includes 
 
-1. Python Support
-2. Rust Support
-3. C/C++ Support
-4. Zig Support
-5. Typescript Support
-5. Java Support (Mainly for Modded MC)
-6. Tmux integration
+- Catppuccin (because it looks pretty)
+- Oil.nvim (for better file-system management) 
+- Mini.pick (for fast file/help searching)
+- Typst-Preview (for amazing typst workflows)
+- Nvim-Treesitter (for sane highlighting)
 
-## Tmux integration
-When using tmux I have made it, so you can run a command. <M-c> opens up a harpoon list with the current commands, with the top most recent command being run.
-To add a command use the `:CompileModeCommand` command with your command as the argument. adding `$CURRENT_FILE` will replace that with the current file if you so need it
-
-Assuming you have neovim in your first tab of tmux and your second tab is running your code, <M-r> will run that command in your second tab.
-Some examples of how I use this is adding build commands and run commands like `make && ./executable`.
