@@ -43,7 +43,7 @@ vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
 -- Language Servers
-vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd' })
+vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp' })
 
 -- PLUGINS --
 
