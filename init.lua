@@ -27,7 +27,7 @@ vim.g.mapleader = ' '
 -- Keybinds
 
 vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>')
-vim.keymap.set('n', '<leader>r', ':make<CR>')
+vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>')
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>')
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>')
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>')
