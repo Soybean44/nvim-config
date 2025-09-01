@@ -1,4 +1,10 @@
+if vim.treesitter.language.add('typst') then
+  vim.treesitter.start(bufnr, 'typst')
+end
+
+vim.g.maplocalleader = ","
 vim.g.export_typst = true
+vim.keymap.set('n', '<LocalLeader>tp', ':TypstPreview<CR>')
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.typ",
@@ -49,41 +55,8 @@ vim.api.nvim_create_user_command("TypstExport", export, {
   end
 })
 
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
-local conf = require("telescope.config").values
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
-
-
-local function export_picker()
-  local filetype = vim.bo.filetype
-  if filetype ~= "typst" then
-    print("Current buffer is not a typst file")
-    return
-  end
-
-  pickers.new({}, {
-    prompt_title = "Select Export Format",
-    finder = finders.new_table {
-      results = export_types,
-    },
-    sorter = conf.generic_sorter({}),
-    attach_mappings = function(prompt_bufnr, map)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        export({ selection[1] })
-      end)
-      return true
-    end,
-  }):find()
-end
-
-vim.api.nvim_create_user_command("ExportPicker", export_picker, {})
 vim.api.nvim_create_user_command("AutoPdfToggle", function ()
   vim.g.export_typst = not vim.g.export_typst
   print("Set pdf export to", vim.g.export_typst)
 end, {})
 
-vim.keymap.set('n', '<localleader>tc', export_picker, { noremap = true, silent = true })
