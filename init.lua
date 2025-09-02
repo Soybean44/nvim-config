@@ -53,6 +53,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.pick' },
   { src = 'https://github.com/chomosuke/typst-preview.nvim' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/L3MON4D3/LuaSnip' },
 })
 
 
