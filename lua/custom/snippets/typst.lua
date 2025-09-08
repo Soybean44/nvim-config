@@ -153,6 +153,16 @@ return {
     end, {}) },
     { condition = math }
   ),
+  s({ trig = "([a-zA-Z]+)code", regTrig = true, priority = 101 },
+  
+    { d(1, function(args, snip)
+      return sn(nil, {
+          t({"```" .. snip.captures[1], ""}),
+          i(1),
+          t({"", "```"})
+      })
+    end, {}) },
+    { condition = not_math }),
   s({ trig = "(%d)table", regTrig = true, snippetType = "autosnippet", priority = 101 },
     {
       t({
