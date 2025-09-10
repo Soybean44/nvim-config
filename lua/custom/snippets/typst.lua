@@ -96,7 +96,7 @@ return {
     { condition = not_math }
   ),
   -- Regex / Functions
-  s({ trig = "([a-zA-Z])vec", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "([a-zA-Z]+)vec", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
           "arrow(" .. snip.captures[1] .. ")"
@@ -132,21 +132,35 @@ return {
     { condition = math }
   ),
 
-  s({ trig = "([a-zA-Z])bar", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "([a-zA-Z]+)bar", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
           "overline(" .. snip.captures[1] .. ")"
     end, {}),
     { condition = math }
   ),
-  s({ trig = "([a-zA-Z])hat", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "([a-zA-Z]+)hat", regTrig = true, snippetType = "autosnippet", priority = 101 },
     f(function(args, snip)
       return
           "hat(" .. snip.captures[1] .. ")"
     end, {}),
     { condition = math }
   ),
-  s({ trig = "([a-zA-Z])(%d)", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "([a-zA-Z]+)dot", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+          "dot(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "([a-zA-Z]+)ddot", regTrig = true, snippetType = "autosnippet", priority = 101 },
+    f(function(args, snip)
+      return
+          "dot.double(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "([a-zA-Z]+)(%d)", regTrig = true, snippetType = "autosnippet", priority = 101 },
     { f(function(args, snip)
       return
           snip.captures[1] .. "_(" .. snip.captures[2] .. ")"
