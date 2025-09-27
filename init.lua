@@ -26,11 +26,13 @@ vim.g.mapleader = ' '
 
 -- Keybinds
 
-vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>')
-vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>')
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>')
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>')
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>')
+vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>', { desc = "Source file" })
+vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>', { desc = "Compile/Run file" })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Delete buffer" })
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = "Next buffer" })
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = "Previous buffer" })
+vim.keymap.set('n', '<leader>bl', ':buffers<CR>', { desc = "List buffers" })
+vim.keymap.set('n', '<leader>nh', ':noh<CR>', { desc = "Clear Highlights" })
 vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-c>', '<Esc>')
 vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-h>', '<C-w>h')
 vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-j>', '<C-w>j')
