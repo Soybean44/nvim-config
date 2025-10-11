@@ -7,16 +7,12 @@ local c = ls.choice_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 return {
-  s({trig = "hello"}, {
-    t {
-      "#include <stdio.h>",
-      "",
-      "int main (void) {",
-      '  printf("Hello World!\\n");',
-      "  return 0;",
-      "}",
-    },
-  }),
+  s({trig = "hello"},fmta([[#include <<stdio.h>>
+
+int main(void) {
+  printf("Hello World!\\n");
+  return 0;
+}]], {})),
   s({trig = "for"}, fmta([[for (int <1>=<2>; <1> <3> <4>; <1><5>) {  
   <6>
 }]],{
