@@ -2,29 +2,47 @@
 -- A Stupidly Simple Neovim Config
 ----------------------------------
 
--- Options
+-- Options --
 
+-- Numbers
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
+vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
+
+-- Text Formating
 vim.o.linebreak = true
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.autoindent = true
-vim.o.swapfile = false
+
+-- smart search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- completion
 vim.o.clipboard = 'unnamedplus'
 vim.o.winborder = 'rounded'
-vim.o.completeopt = "fuzzy,menu"
+vim.opt.completeopt:append{"fuzzy", "menuone", "noinsert", "popup"}
+vim.opt.complete:remove{"t"}
 vim.o.termguicolors = true
 vim.o.spelllang = "en_ca"
 vim.o.spellsuggest = "best"
+vim.o.completefunc = "v:lua.require'snipcomp'"
 
+-- Misc
+
+vim.opt.undofile = true  -- persistent undo history
+vim.o.swapfile = false   -- removes annoying swap file
+vim.o.hidden = true      -- swap buffers without having to save changes
+
+
+-- Keybinds --
 
 vim.g.mapleader = ' '
-
--- Keybinds
 
 vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>', { desc = "Source file" })
 vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>', { desc = "Compile/Run file" })
@@ -58,6 +76,7 @@ vim.pack.add({
   { src = 'https://github.com/L3MON4D3/LuaSnip' },
   { src = 'https://github.com/iurimateus/luasnip-latex-snippets.nvim' },
 })
+
 
 
 -- Plugin Configuration
@@ -100,8 +119,12 @@ vim.keymap.set({ "i", "s" }, "<C-b>", function()
     ls.jump(-1)
   end
 end, { silent = true })
+--
+-- set keybinds for both INSERT and VISUAL.
+vim.keymap.set({"i", "s"}, "<C-n>", "<Plug>luasnip-next-choice", {})
+vim.keymap.set({"i", "s"}, "<C-p>", "<Plug>luasnip-prev-choice", {})
 
-vim.keymap.set({ "i", "s" }, '<C-y>', function()
+vim.keymap.set({ "i", "s" }, '<C-s>', function()
   ls.expand({})
 end, { silent = true })
 
