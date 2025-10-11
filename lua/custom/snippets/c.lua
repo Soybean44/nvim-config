@@ -13,7 +13,7 @@ int main(void) {
   printf("Hello World!\\n");
   return 0;
 }]], {})),
-  s({trig = "for"}, fmta([[for (int <1>=<2>; <1> <3> <4>; <1><5>) {  
+  s({trig = "for-range"}, fmta([[for (int <1>=<2>; <1> <3> <4>; <1><5>) {  
   <6>
 }]],{
     i(1, "i"),

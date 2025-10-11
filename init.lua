@@ -132,7 +132,8 @@ vim.api.nvim_create_user_command("EditSnippets", function ()
   require("luasnip.loaders").edit_snippet_files()
 end, {})
 
-require("luasnip.loaders.from_lua").lazy_load({lazy_paths = {"~/.config/nvim/lua/custom/snippets"}})
+require("luasnip.loaders.from_vscode").lazy_load({ paths = {"./snippets"} })
+require("luasnip.loaders.from_lua").lazy_load({ lazy_paths = {"./lua/custom/snippets"} })
 
 require('catppuccin').setup({
   flavour = 'mocha',

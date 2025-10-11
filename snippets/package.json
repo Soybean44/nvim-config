@@ -1,0 +1,14 @@
+{
+  "name": "soybean's snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes" : {
+    "snippets": [
+      {
+        "language": "c",
+        "path": "./c.json"
+      }
+    ]
+  }
+}
