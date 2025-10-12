@@ -80,7 +80,7 @@ vim.pack.add({
 
 
 
--- Plugin Configuration
+-- Plugin Configuration -- 
 
 require('mini.pick').setup({
   window = {
@@ -99,6 +99,23 @@ require('mini.pick').setup({
 })
 vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
+vim.keymap.set('n', '<leader>fs', function ()
+  local ft_list = require("luasnip").available()[vim.o.filetype]
+  require('mini.pick').start({
+    source = {
+      name = "Snippets",
+      items = ft_list,
+      show = function (buf_id, items)
+        local lines = vim.iter(items):map(function (x) return x["name"] end):totable()
+        vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, lines)
+      end,
+      preview = function (buf_id, item)
+        local lines = vim.split(vim.inspect(item), '\n')
+        vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, lines)
+      end
+    }
+  })
+end)
 
 require('oil').setup()
 vim.keymap.set('n', '-', ':Oil<CR>', { desc = 'Open parent directory' })
