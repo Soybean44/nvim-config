@@ -100,7 +100,8 @@ require('mini.pick').setup({
 vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
 vim.keymap.set('n', '<leader>fs', function ()
-  local ft_list = require("luasnip").available()[vim.o.filetype]
+  local ls = require("luasnip")
+  local ft_list = ls.get_snippets(vim.o.filetype)
   require('mini.pick').start({
     source = {
       name = "Snippets",
@@ -112,7 +113,7 @@ vim.keymap.set('n', '<leader>fs', function ()
       preview = function (buf_id, item)
         local lines = vim.split(vim.inspect(item), '\n')
         vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, lines)
-      end
+      end,
     }
   })
 end)
@@ -159,3 +160,5 @@ require('catppuccin').setup({
 })
 
 vim.cmd('colorscheme catppuccin')
+
+
