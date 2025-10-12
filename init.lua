@@ -75,6 +75,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
   { src = 'https://github.com/L3MON4D3/LuaSnip' },
   { src = 'https://github.com/iurimateus/luasnip-latex-snippets.nvim' },
+  { src = 'https://github.com/rafamadriz/friendly-snippets' },
 })
 
 
@@ -132,7 +133,7 @@ vim.api.nvim_create_user_command("EditSnippets", function ()
   require("luasnip.loaders").edit_snippet_files()
 end, {})
 
-require("luasnip.loaders.from_vscode").lazy_load({ paths = {"./snippets"} })
+require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").lazy_load({ lazy_paths = {"./lua/custom/snippets"} })
 
 require('catppuccin').setup({
