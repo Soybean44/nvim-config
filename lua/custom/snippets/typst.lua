@@ -167,7 +167,7 @@ return {
     end, {}) },
     { condition = math }
   ),
-  s({ trig = "([a-zA-Z]+)code", regTrig = true, priority = 101 },
+  s({ trig = "([a-zA-Z]*)code", regTrig = true, priority = 101 },
   
     { d(1, function(args, snip)
       return sn(nil, {
@@ -234,6 +234,12 @@ return {
     fmt([[$
   H_(0): {} op(" vs ") H_(a): {}
 $]], { i(1, 'op("null hypothesis")'), i(2, 'op("alternative hypothesis")') }), { condition = not_math }),
+
+  s(
+    { trig = "iprod", snippetType = "autosnippet", priority = 1 },
+    fmt("angle.l {}, {} angle.r", {i(1, "f"), i(2, "g")}),
+    { condition = math }
+  ),
 
   -- Shorthand
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
