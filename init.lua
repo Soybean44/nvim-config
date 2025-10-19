@@ -26,7 +26,7 @@ vim.opt.smartcase = true
 -- completion
 vim.o.clipboard = 'unnamedplus'
 vim.o.winborder = 'rounded'
-vim.opt.completeopt:append{"fuzzy", "menuone", "noinsert", "popup"}
+vim.opt.completeopt:append{"fuzzy", "menuone", "popup"}
 vim.opt.complete:remove{"t"}
 vim.o.termguicolors = true
 vim.o.spelllang = "en_ca"
