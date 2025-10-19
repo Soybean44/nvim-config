@@ -60,7 +60,8 @@ vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-l>', '<C-w>l')
 -- LSP --
 
 -- Settings
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = "Format buffer" })
+vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { desc = "Go to definition" })
 
 -- Language Servers
 vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp' })
