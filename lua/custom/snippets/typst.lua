@@ -146,7 +146,14 @@ return {
     end, {}),
     { condition = math }
   ),
-  s({ trig = "([a-zA-Z]+)dot", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "([a-zA-Z]+)ddot", regTrig = true, snippetType = "autosnippet", priority = 201 },
+    f(function(args, snip)
+      return
+          "dot.double(" .. snip.captures[1] .. ")"
+    end, {}),
+    { condition = math }
+  ),
+  s({ trig = "([a-zA-Z]+)dot", regTrig = true, snippetType = "autosnippet", priority = 1 },
     f(function(args, snip)
       return
           "dot(" .. snip.captures[1] .. ")"
