@@ -100,6 +100,7 @@ require('mini.pick').setup({
   }
 })
 vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
+vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>')
 vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
 vim.keymap.set('n', '<leader>fs', function ()
   local ls = require("luasnip")
