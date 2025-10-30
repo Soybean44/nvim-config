@@ -6,6 +6,15 @@ local i = ls.insert_node
 
 local snippets = {
   s({
+    trig = "scode",
+    namr = "Sagemath codeblock",
+    dscr = "Sagemath codeblock",
+  }, {
+    t { "```{sage}", "" },
+    i(1, "code"),
+    t { "", "```" },
+  }), 
+  s({
     trig = "pycode",
     namr = "Python codeblock",
     dscr = "Python codeblock",
