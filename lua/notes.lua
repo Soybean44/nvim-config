@@ -1,5 +1,6 @@
 --------------------------------------------
 -- All note related items in a modular file.
+-- This file uses ftplugins for typst files.
 -- This file is completely optional
 --------------------------------------------
 
