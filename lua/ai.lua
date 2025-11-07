@@ -10,7 +10,7 @@ vim.keymap.set('i', '<M-l>', 'copilot#Accept("\\<CR>")', {
   replace_keycodes = false
 })
 vim.keymap.set('i', '<M-L>', '<Plug>(copilot-accept-word)')
-vim.keymap.set('n', '<leader>ac', ':CopilotChat<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ac', ':CopilotChatToggle<CR>', { noremap = true, silent = true })
 
 -- Options
 vim.g.copilot_no_tab_map = true
