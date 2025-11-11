@@ -5,11 +5,11 @@ vim.pack.add({
 })
  
 -- Keymaps
-vim.keymap.set('i', '<M-l>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
-vim.keymap.set('i', '<M-L>', '<Plug>(copilot-accept-word)')
+vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
+          expr = true,
+          replace_keycodes = false
+        })
+vim.keymap.set('i', '<M-C-l>', '<Plug>(copilot-accept-word)')
 vim.keymap.set('n', '<leader>ac', ':CopilotChatToggle<CR>', { noremap = true, silent = true })
 
 -- Options

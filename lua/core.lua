@@ -54,10 +54,7 @@ vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = "Previous buffer" }
 vim.keymap.set('n', '<leader>bl', ':buffers<CR>', { desc = "List buffers" })
 vim.keymap.set('n', '<leader>nh', ':noh<CR>', { desc = "Clear Highlights" })
 vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-c>', '<Esc>')
-vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-h>', '<C-w>h')
-vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-j>', '<C-w>j')
-vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-k>', '<C-w>k')
-vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-l>', '<C-w>l')
+
 
 -- LSP --
 
