@@ -56,16 +56,6 @@ vim.keymap.set('n', '<leader>nh', ':noh<CR>', { desc = "Clear Highlights" })
 vim.keymap.set({ 'n', 'v', 'o', 'i', 'x' }, '<C-c>', '<Esc>')
 
 
--- LSP --
-
--- Settings
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = "Format buffer" })
-vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { desc = "Go to definition" })
-
--- Language Servers
--- Set this as desired, and imclude them in ../lsp/server_name.lua
-vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp' })
-
 
 
 
