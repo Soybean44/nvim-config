@@ -15,18 +15,3 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { desc = "Go to definition" })
 -- Language Servers
 -- Set this as desired, and imclude them in ../lsp/server_name.lua
 vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp', 'zls' })
-
-vim.lsp.config('lua_ls', {
-	settings = {
-		Lua = {
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = { enable = false },
-			diagnostics = {
-				disable = { 'missing-fields' },
-			}
-		}
-	}
-})
-
