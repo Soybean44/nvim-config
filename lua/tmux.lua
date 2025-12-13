@@ -17,4 +17,4 @@ vim.api.nvim_create_user_command('TmuxRunCmd', function(opts)
   vim.cmd(":!tmux next-window && tmux send-keys \"" .. cmd_str .. "\" Enter")
 end, { nargs = '?' })
 
-vim.keymap.set('n', '<leader>r', ':update<CR> :TmuxRunCmd<CR>', { desc = "Compile/Run file" })
+vim.keymap.set('n', '<leader>r', ':update<CR> :TmuxRunCmd<CR><CR>', { desc = "Compile/Run file" })
