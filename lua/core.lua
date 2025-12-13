@@ -36,18 +36,17 @@ vim.o.spelllang = "en_ca"
 vim.o.spellsuggest = "best"
 
 -- Misc
-
 vim.opt.undofile = true  -- persistent undo history
 vim.o.swapfile = false   -- removes annoying swap file
 vim.o.hidden = true      -- swap buffers without having to save changes
-
 
 -- Keybinds --
 
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>', { desc = "Source file" })
-vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>', { desc = "Compile/Run file" })
+-- using tmux run solution seen in tmux.lua
+-- vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>', { desc = "Compile/Run file" })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Delete buffer" })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = "Next buffer" })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = "Previous buffer" })

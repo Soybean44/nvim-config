@@ -1,4 +1,3 @@
 vim.treesitter.start()
+vim.b.runcmd = "make run"
 
-vim.keymap.del('n', '<leader>r')
-vim.keymap.set('n', '<leader>r', ':make | !tmux next-window && tmux send-keys make Space run Enter<CR><CR>')
