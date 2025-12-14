@@ -42,7 +42,9 @@ end, {})
 
 local strudel = require("strudel")
 strudel.setup({
-    -- Configuration options go here
+  update_on_save = true,
+  sync_cursor = true,
+  report_ecal_errors = true
 })
 
 vim.keymap.set("n", "<leader>sl", strudel.launch, { desc = "Launch Strudel" })
