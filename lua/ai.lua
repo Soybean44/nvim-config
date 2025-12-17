@@ -1,3 +1,8 @@
+--------------------------------------------
+-- All AI related items in a modular file.
+-- This file is completely optional
+--------------------------------------------
+
 vim.pack.add({
   { src = 'https://github.com/github/copilot.vim' },
   { src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim' },
