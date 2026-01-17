@@ -1,9 +1,9 @@
 vim.treesitter.start()
 
-vim.b.maplocalleader = ","
+vim.g.maplocalleader = ","
 vim.b.export_typst = true
 vim.o.spell = true
-vim.keymap.set('n', '<LocalLeader>tp', ':TypstPreview<CR>')
+vim.keymap.set('n', '<localleader>tp', ':TypstPreview<CR>')
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.typ",

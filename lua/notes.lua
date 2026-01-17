@@ -83,3 +83,17 @@ vim.api.nvim_create_autocmd("CompleteDone", {
   end
 })
 vim.o.completefunc = "v:lua.completefunc"
+
+local function whereis(bin)
+  local p = vim.fn.systemlist('whereis -b ' .. bin)[1] or ''
+  -- "tinymist: /usr/bin/tinymist" -> "/usr/bin/tinymist"
+  return p:match('^%S+:%s*(%S+)') or nil
+end
+
+require("typst-preview").setup{
+  debug = true,
+  dependencies_bin = {
+    ["tinymist"] = whereis('tinymist'),
+    ["websocat"] = whereis('websocat'),
+  }
+}
