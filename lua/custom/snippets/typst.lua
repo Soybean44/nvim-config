@@ -244,7 +244,7 @@ $]], { i(1, 'op("null hypothesis")'), i(2, 'op("alternative hypothesis")') }), {
 
   s(
     { trig = "iprod", snippetType = "autosnippet", priority = 1 },
-    fmt("angle.l {}, {} angle.r", {i(1, "f"), i(2, "g")}),
+    fmt("chevron.l {}, {} chevron.r", {i(1, "f"), i(2, "g")}),
     { condition = math }
   ),
 
