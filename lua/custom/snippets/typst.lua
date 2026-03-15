@@ -117,7 +117,7 @@ return {
     },
     { condition = math }
   ),
-  s({ trig = "(%d)par", regTrig = true, snippetType = "autosnippet", priority = 101 },
+  s({ trig = "(%d)pard", regTrig = true, snippetType = "autosnippet", priority = 101 }, -- pard -> partial derivative
     {
       f(function(args, snip)
         return '(partial^(' .. snip.captures[1] .. ') '
@@ -234,7 +234,7 @@ return {
     fmt('integral_({})^({}) {} thin d {}', { i(1, "a"), i(2, "b"), i(3, "f(x)"), i(4, "x") }), { condition = math }),
   s({ trig = "ddx", snippetType = "autosnippet", priority = 1 },
     fmt('(d {})/(d {})', { i(1), i(2, "x") }), { condition = math }),
-  s({ trig = "par", snippetType = "autosnippet", priority = 1 },
+  s({ trig = "pard", snippetType = "autosnippet", priority = 1 }, -- pard -> partial derivative
     fmt('(partial {})/(partial {})', { i(1), i(2, "x") }), { condition = math }),
 
   s({ trig = "hyp", priority = 1 },
