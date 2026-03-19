@@ -13,5 +13,4 @@ vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = "Format buffer" }
 vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { desc = "Go to definition" })
 
 -- Language Servers
--- Set this as desired, and imclude them in ../lsp/server_name.lua
-vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp', 'zls' })
+vim.lsp.enable({ 'lua_ls', 'tinymist', 'clangd', 'pylsp', 'zls', 'c3_lsp' })
