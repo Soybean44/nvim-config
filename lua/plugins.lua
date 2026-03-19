@@ -8,7 +8,10 @@ vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim' },
   { src = 'https://github.com/stevearc/oil.nvim' },
   { src = 'https://github.com/nvim-mini/mini.pick' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  {
+    src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+    branch = 'main'
+  },
 })
 
 -- Plugin Configuration -- 
@@ -34,7 +37,7 @@ vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
 require('oil').setup()
 vim.keymap.set('n', '-', ':Oil<CR>', { desc = 'Open parent directory' })
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.config").setup({
   ensure_installed = { "typst", "lua", "python", "c", "cpp", "jinja", "html", "javascript", "css" },
   highlight = { enable = true }
 })

@@ -1,0 +1,60 @@
+{
+  "plugins": {
+    "CopilotChat.nvim": {
+      "rev": "db56110b19c702053e86d54b48d8d570c59d0b6b",
+      "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+    },
+    "LuaSnip": {
+      "rev": "21f74f7ba8c49f95f9d7c8293b147c2901dd2d3a",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "copilot.vim": {
+      "rev": "da369d90cfd6c396b1d0ec259836a1c7222fb2ea",
+      "src": "https://github.com/github/copilot.vim"
+    },
+    "friendly-snippets": {
+      "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "luasnip-latex-snippets.nvim": {
+      "rev": "498f4ba12d025487939d89b801647b44bb15676c",
+      "src": "https://github.com/iurimateus/luasnip-latex-snippets.nvim"
+    },
+    "mini.pick": {
+      "rev": "be6490ae9d7038b9f5185d95a8060054f9b23666",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "nvim": {
+      "rev": "30fa4d122d9b22ad8b2e0ab1b533c8c26c4dde86",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "effe4bf2e1afb881ea67291c648b68dd3dfc927a",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "07f80ad645895af849a597d1cac897059d89b686",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "strudel.nvim": {
+      "rev": "a6b9752b0084a20c37786b54eef2095bb31daff7",
+      "src": "https://github.com/gruvw/strudel.nvim"
+    },
+    "typst-preview.nvim": {
+      "rev": "dea4525d5420b7c32eebda7de15a6beb9d6574fa",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    },
+    "vim-tidal": {
+      "rev": "e440fe5bdfe07f805e21e6872099685d38e8b761",
+      "src": "https://github.com/tidalcycles/vim-tidal"
+    }
+  }
+}
