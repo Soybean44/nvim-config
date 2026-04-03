@@ -1,4 +1,7 @@
-vim.treesitter.start()
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "typst",
+  callback = function() vim.treesitter.start() end,
+})
 
 vim.g.maplocalleader = ","
 vim.b.export_typst = true
