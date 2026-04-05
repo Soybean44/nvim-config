@@ -13,12 +13,13 @@ CFLAGS := -Wall -Wextra -Werror --std=c99
 LDFLAGS := 
 BUILD := build
 SRC := src
+TARGET := main
 
 .PHONY: all clean run
 
-all: $(BUILD)/main
+all: $(BUILD)/$(TARGET)
 
-$(BUILD)/main: $(SRC)/main.c
+$(BUILD)/$(TARGET): $(SRC)/main.c
 	@mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
@@ -26,6 +27,6 @@ clean:
 	rm -rf $(BUILD)
 
 run: all
-	./$(BUILD)/main]] , {})),
+	./$(BUILD)/$(TARGET)]] , {})),
 }
 

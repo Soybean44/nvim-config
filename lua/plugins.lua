@@ -3,9 +3,9 @@
 -- This file is completely optional
 -------------------------------------------
 
+
 vim.pack.add({
   { src = 'https://github.com/chomosuke/typst-preview.nvim' },
-  { src = 'https://github.com/catppuccin/nvim' },
   { src = 'https://github.com/stevearc/oil.nvim' },
   { src = 'https://github.com/nvim-mini/mini.pick' },
   {
@@ -41,12 +41,4 @@ require("nvim-treesitter.config").setup({
   ensure_installed = { "typst", "lua", "python", "c", "cpp", "jinja", "html", "javascript", "css" },
   highlight = { enable = true }
 })
-
-require('catppuccin').setup({
-  flavour = 'mocha',
-  transparent_background = not vim.g.neovide,
-})
-
-vim.cmd('colorscheme catppuccin')
-
 
