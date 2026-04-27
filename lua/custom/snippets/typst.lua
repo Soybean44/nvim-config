@@ -249,6 +249,7 @@ $]], { i(1, 'op("null hypothesis")'), i(2, 'op("alternative hypothesis")') }), {
   ),
 
   -- Shorthand
+  s({ trig = "oint", snippetType = "autosnippet", priority = 100 }, t "integral.cont", { condition = math }),
   s({ trig = "qed", snippetType = "autosnippet", priority = 1 },
     { t("#align(right)[#square(width:0.9em, stroke:0.5pt)]") }, { condition = not_math }),
   s({ trig = "+-", snippetType = "autosnippet", priority = 100 }, t "plus.minus ", { condition = math }),
