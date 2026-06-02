@@ -27,6 +27,14 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- completion
+if vim.fn.has('wayland') == 1 then -- Copy Paste on Wayland
+  vim.g.clipboard = {
+    name = 'wl-clipboard',
+    copy = { ['+'] = 'wl-copy', ['*'] = 'wl-copy -p' },
+    paste = { ['+'] = 'wl-paste', ['*'] = 'wl-paste -p' },
+  }
+end
+
 vim.o.clipboard = 'unnamedplus'
 vim.o.winborder = 'rounded'
 vim.opt.completeopt:append{"fuzzy", "noinsert", "menuone", "popup"}
