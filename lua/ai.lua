@@ -4,19 +4,29 @@
 --------------------------------------------
 
 vim.pack.add({
-  { src = 'https://github.com/github/copilot.vim' },
+  { src = 'https://github.com/zbirenbaum/copilot.lua' },
   { src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim' },
   { src = 'https://github.com/nvim-lua/plenary.nvim'},
 })
- 
--- Keymaps
-vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
-          expr = true,
-          replace_keycodes = false
-        })
-vim.keymap.set('i', '<M-C-l>', '<Plug>(copilot-accept-word)')
-vim.keymap.set('n', '<leader>ac', ':CopilotChatToggle<CR>', { noremap = true, silent = true })
 
--- Options
-vim.g.copilot_no_tab_map = true
+vim.g.copilot_nes_debounce = 500
+
+require("copilot").setup({
+suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    hide_during_completion = true,
+    debounce = 15,
+    trigger_on_accept = true,
+    keymap = {
+      accept = "<M-l>",
+      accept_word = false,
+      accept_line = false,
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
+      toggle_auto_trigger = "<M-/>",
+    },
+  }
+})
 
