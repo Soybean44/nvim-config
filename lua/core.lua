@@ -44,6 +44,8 @@ vim.o.spelllang = "en_ca"
 vim.o.spellsuggest = "best"
 
 -- Misc
+vim.opt.messagesopt:append("wait:500") -- 500ms wait time for messages like typst compilation
+vim.opt.messagesopt:remove("hit-enter")
 vim.opt.undofile = true  -- persistent undo history
 vim.o.swapfile = false   -- removes annoying swap file
 vim.o.hidden = true      -- swap buffers without having to save changes

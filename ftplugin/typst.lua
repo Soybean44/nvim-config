@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.typ",
   callback = function ()
     if vim.b.export_typst then
-      vim.cmd[[LspTinymistExportPdf]]
+      vim.cmd("LspTinymistExportPdf")
     end
   end,
 })
