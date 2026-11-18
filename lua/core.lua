@@ -53,6 +53,7 @@ vim.o.hidden = true      -- swap buffers without having to save changes
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<leader>x', ':update<CR> :source<CR>', { desc = "Source file" })
+vim.keymap.set('n', '<leader>y', ':update<CR>', { desc = "quick save keybind" })
 -- using tmux run solution seen in tmux.lua
 -- vim.keymap.set('n', '<leader>r', ':update<CR> :make<CR>', { desc = "Compile/Run file" })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Delete buffer" })
